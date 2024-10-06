@@ -38,6 +38,7 @@ dependencies:
   smooth_page_indicator: ^1.2.0+3
   shared_preferences: ^2.3.2
   lottie: ^3.1.2
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +71,37 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/1.png
+    - assets/2.png
+    - assets/3.png
+    - assets/4.png
+    - assets/5.png
+    - assets/6.png
+    - assets/7.png
+    - assets/8.png
+    - assets/9.png
+    - assets/10.png
+    - assets/11.png
+    - assets/12.png
+    - assets/13.png
+    - assets/14.png
+    - assets/15.png
+    - assets/16.png
+    - assets/17.png
+    - assets/18.png
+    - assets/19.png
+    - assets/20.png
+    - assets/21.png
+    - assets/22.png
+    - assets/22.png
+    - assets/23.png
+    - assets/24.png
+    - assets/25.png
+    - assets/26.png
+    - assets/27.png
+    - assets/28.png
+    - assets/29.png
+    - assets/30.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
