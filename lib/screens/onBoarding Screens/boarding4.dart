@@ -6,15 +6,24 @@ class Boarding4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          // الصورة
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(height: 150),
 
+              //! العنوان
+              Text(
+                "Let's set you up",
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 20),
 
-          // العنوان
-
-          
-        ],
+              //! تحميل الصورة
+            ],
+          ),
+        ),
       ),
     );
   }

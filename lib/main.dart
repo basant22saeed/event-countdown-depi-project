@@ -3,11 +3,9 @@ import 'package:event_countdown/screens/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  
 
   runApp(const MyApp());
 }
@@ -20,8 +18,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-   //! نتحقق اذا كان المستخدم فتح التطبيق قبل كده ولا لا --  بسنت سعيد
+  //! نتحقق اذا كان المستخدم فتح التطبيق قبل كده ولا لا --  بسنت سعيد
   bool _seenOnboarding = false;
 
   @override
@@ -46,10 +43,12 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         fontFamily: "SF",
         colorScheme: ColorScheme.fromSeed(
-            seedColor: Colors.purple, surface: const Color(0xffBFBFDB)),
+          seedColor: Colors.purple,
+          surface: const Color(0xffBFBFDB),
+          primary: Color(0xff1A1A4B),
+        ),
         useMaterial3: true,
       ),
-
       home: _seenOnboarding ? SplashScreen() : OnBoarding1(),
     );
   }

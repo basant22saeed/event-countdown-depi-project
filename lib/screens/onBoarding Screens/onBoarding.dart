@@ -3,6 +3,7 @@ import 'package:event_countdown/screens/onBoarding%20Screens/boarding1.dart';
 import 'package:event_countdown/screens/onBoarding%20Screens/boarding2.dart';
 import 'package:event_countdown/screens/onBoarding%20Screens/boarding3.dart';
 import 'package:event_countdown/screens/onBoarding%20Screens/boarding4.dart';
+import 'package:event_countdown/screens/onBoarding%20Screens/boarding5.dart';
 import 'package:event_countdown/screens/splash.dart';
 import 'package:event_countdown/widgets/button.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,7 @@ class _OnBoarding1State extends State<OnBoarding1> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(children: [
+        //! الصفحات
         PageView(
           controller: _controller,
           onPageChanged: (index) {
@@ -44,13 +46,33 @@ class _OnBoarding1State extends State<OnBoarding1> {
             });
           },
           children: [
-           Boarding1(),
-           Boarding2(),
-           Boarding3(),
-           Boarding4(),
+            Boarding1(),
+            Boarding2(),
+            Boarding3(),
+            Boarding4(),
+            Boarding5(),
           ],
         ),
+
+        //! تخطي المقدمة
+        onLastPage
+            ? Container()
+            : GestureDetector(
+                onTap: () => _controller.jumpToPage(5),
+                child: Container(
+                  alignment: Alignment(0.75, -0.82),
+                  child: Text(
+                    "Skip >",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Theme.of(context).colorScheme.primary),
+                  ),
+                ),
+              ),
+
+        //! التنقل بين الصفحات
         Container(
+          alignment: Alignment(0, 0.75),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -65,7 +87,7 @@ class _OnBoarding1State extends State<OnBoarding1> {
               onLastPage
                   ? Button(
                       buttonText: "Let's Go!",
-                      onPressed: () =>  _completeOnboarding(context),
+                      onPressed: () => _completeOnboarding(context),
                     )
                   : Button(
                       buttonText: "Next",
@@ -76,7 +98,6 @@ class _OnBoarding1State extends State<OnBoarding1> {
                       }),
             ],
           ),
-          alignment: Alignment(0, 0.75),
         ),
       ]),
     );
