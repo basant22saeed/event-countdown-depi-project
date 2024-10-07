@@ -2,6 +2,7 @@
 
 import 'package:event_countdown/screens/add_event.dart';
 import 'package:flutter/material.dart';
+import 'package:event_countdown/screens/drawer.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -33,7 +34,7 @@ class HomeScreen extends StatelessWidget {
       ),
 
 //!           الصفحة الجانبية للاعدادات-> بشمهندسة نورهان
-      drawer: const Drawer(),
+      drawer: AppDrawer(),
     );
   }
 }

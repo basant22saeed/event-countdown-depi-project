@@ -1,7 +1,10 @@
 import 'package:event_countdown/screens/onBoarding%20Screens/onBoarding.dart';
+import 'package:event_countdown/screens/provider_drawer.dart';
 import 'package:event_countdown/screens/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,19 +40,31 @@ class _MyAppState extends State<MyApp> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: "SF",
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.purple,
-          surface: const Color(0xffBFBFDB),
-          primary: Color(0xff1A1A4B),
-        ),
-        useMaterial3: true,
-      ),
-      home: _seenOnboarding ? SplashScreen() : OnBoarding1(),
+  Widget build(BuildContext context)
+  {
+    //  زودت جزء ال ( mode theme)
+    return ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      builder: (context, child)
+      {
+        final themeProvider = Provider.of<ThemeProvider>(context);
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          themeMode: themeProvider.themeMode,
+          theme: ThemeData(
+            fontFamily: "SF",
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.purple,
+              surface: const Color(0xffBFBFDB),
+              primary: Color(0xff1A1A4B),
+            ),
+            useMaterial3: true,
+          ),
+          highContrastTheme: ThemeData.light(),
+          darkTheme: ThemeData.dark(),
+          home: _seenOnboarding ? SplashScreen() : OnBoarding1(),
+        );
+      },
     );
   }
 }
