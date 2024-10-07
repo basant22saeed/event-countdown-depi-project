@@ -1,9 +1,9 @@
-import 'package:event_countdown/event.dart';
+
 import 'package:flutter/material.dart';
 
 class NotificationHistory extends StatelessWidget {
-  final  Event event;
-  NotificationHistory( this.event);
+  // final  Event event;
+  // NotificationHistory( this.event);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +39,7 @@ class NotificationHistory extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                      event.title,
+                      'Event',
                         style: TextStyle(
                             fontSize: 30, fontWeight: FontWeight.bold),
                       ),
@@ -53,7 +53,7 @@ class NotificationHistory extends StatelessWidget {
                             width: 5,
                           ),
                           Text(
-                            event.date.toIso8601String(),
+                            'Event Date',
                             style: TextStyle(fontSize: 16),
                           )
                         ],
@@ -68,7 +68,7 @@ class NotificationHistory extends StatelessWidget {
                             width: 5,
                           ),
                           Text(
-                            event.time.format(context),
+                           'Event Time',
                             style: TextStyle(fontSize: 16),
                           )
                         ],
