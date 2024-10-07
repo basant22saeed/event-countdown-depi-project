@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:event_countdown/event.dart';
+import 'package:event_countdown/screens/notification.dart';
 import 'package:event_countdown/screens/provider_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -75,7 +77,8 @@ class _AppDrawerState extends State<AppDrawer> {
 
   @override
   Widget build(BuildContext context) {
-    bool isDarkMode = Provider.of<ThemeProvider>(context).isDarkMode; // Get the current theme mode
+    bool isDarkMode = Provider.of<ThemeProvider>(context)
+        .isDarkMode; // Get the current theme mode
     return Drawer(
       child: Container(
         color: isDarkMode ? Color(0xff1B1B1B) : Color(0xffBFBFDB),
@@ -88,7 +91,9 @@ class _AppDrawerState extends State<AppDrawer> {
               children: [
                 Text(
                   'APP NAME',
-                  style: TextStyle(color: isDarkMode ? Colors.white : Color(0xFF0D1445), fontSize: 30), // Change text color based on theme
+                  style: TextStyle(
+                      color: isDarkMode ? Colors.white : Color(0xFF0D1445),
+                      fontSize: 30), // Change text color based on theme
                 ),
               ],
             ),
@@ -103,9 +108,12 @@ class _AppDrawerState extends State<AppDrawer> {
                       CircleAvatar(
                         radius: 45,
                         backgroundColor: Colors.white,
-                        backgroundImage: _profileImage != null ? FileImage(_profileImage!) : null,
+                        backgroundImage: _profileImage != null
+                            ? FileImage(_profileImage!)
+                            : null,
                         child: _profileImage == null
-                            ? Icon(Icons.person, size: 50, color: Colors.black45)
+                            ? Icon(Icons.person,
+                                size: 50, color: Colors.black45)
                             : null,
                       ),
                       Positioned(
@@ -116,7 +124,8 @@ class _AppDrawerState extends State<AppDrawer> {
                           child: CircleAvatar(
                             backgroundColor: Colors.blueAccent,
                             radius: 17,
-                            child: Icon(Icons.camera_alt, color: Colors.white, size: 20),
+                            child: Icon(Icons.camera_alt,
+                                color: Colors.white, size: 20),
                           ),
                         ),
                       ),
@@ -128,18 +137,31 @@ class _AppDrawerState extends State<AppDrawer> {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.person, color: isDarkMode ? Colors.white : Color(0xFF0D1445)), // Change icon color based on theme
-                          SizedBox(width:12.0),
+                          Icon(Icons.person,
+                              color: isDarkMode
+                                  ? Colors.white
+                                  : Color(
+                                      0xFF0D1445)), // Change icon color based on theme
+                          SizedBox(width: 12.0),
                           Text(
                             _username,
-                            style: TextStyle(color: isDarkMode ? Colors.white : Color(0xFF0D1445), fontSize: 18), // Change text color based on theme
+                            style: TextStyle(
+                                color: isDarkMode
+                                    ? Colors.white
+                                    : Color(0xFF0D1445),
+                                fontSize:
+                                    18), // Change text color based on theme
                           ),
                         ],
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 12),
                         child: IconButton(
-                          icon: Icon(Icons.edit, color: isDarkMode ? Colors.white : Color(0xFF0D1445)), // Change icon color based on theme
+                          icon: Icon(Icons.edit,
+                              color: isDarkMode
+                                  ? Colors.white
+                                  : Color(
+                                      0xFF0D1445)), // Change icon color based on theme
                           onPressed: _editUsername,
                         ),
                       ),
@@ -151,56 +173,84 @@ class _AppDrawerState extends State<AppDrawer> {
             ListTile(
               title: Text(
                 'Settings',
-                style: TextStyle(color: isDarkMode ? Colors.white : Color(0xFF0D1445), fontSize: 20), // Change text color based on theme
+                style: TextStyle(
+                    color: isDarkMode ? Colors.white : Color(0xFF0D1445),
+                    fontSize: 20), // Change text color based on theme
               ),
             ),
-
             SwitchListTile(
               secondary: Icon(
                 isDarkMode ? Icons.dark_mode : Icons.light_mode,
-                color: isDarkMode ? Colors.white: Color(0xff1B1B1B),
+                color: isDarkMode ? Colors.white : Color(0xff1B1B1B),
               ),
-              title: Text('Night mode', style: TextStyle(color: isDarkMode ? Colors.white : Color(0xFF0D1445))), // Change text color based on theme
+              title: Text('Night mode',
+                  style: TextStyle(
+                      color: isDarkMode
+                          ? Colors.white
+                          : Color(
+                              0xFF0D1445))), // Change text color based on theme
               value: isDarkMode,
               activeColor: Colors.blue,
               onChanged: (bool value) {
-                final provider = Provider.of<ThemeProvider>(context, listen: false);
+                final provider =
+                    Provider.of<ThemeProvider>(context, listen: false);
                 provider.toggleTheme(value);
               },
             ),
             ListTile(
-              leading: Icon(Icons.language, color: isDarkMode ? Colors.white : Color(0xFF0D1445)), // Change icon color based on theme
-              title: Text('Language', style: TextStyle(color: isDarkMode ? Colors.white : Color(0xFF0D1445))), // Change text color based on theme
+              leading: Icon(Icons.language,
+                  color: isDarkMode
+                      ? Colors.white
+                      : Color(0xFF0D1445)), // Change icon color based on theme
+              title: Text('Language',
+                  style: TextStyle(
+                      color: isDarkMode
+                          ? Colors.white
+                          : Color(
+                              0xFF0D1445))), // Change text color based on theme
               trailing: Padding(
                 padding: const EdgeInsets.only(right: 12),
                 child: Text(
                   _selectedLanguage,
-                  style: TextStyle(color: isDarkMode ? Colors.white : Color(0xFF0D1445), fontSize: 20), // Change text color based on theme
+                  style: TextStyle(
+                      color: isDarkMode ? Colors.white : Color(0xFF0D1445),
+                      fontSize: 20), // Change text color based on theme
                 ),
               ),
               onTap: _selectLanguage,
             ),
-
             ListTile(
-              leading: Icon(Icons.notifications, color: isDarkMode ? Colors.white : Color(0xFF0D1445)), // Change icon color based on theme
+              leading: Icon(Icons.notifications,
+                  color: isDarkMode
+                      ? Colors.white
+                      : Color(0xFF0D1445)), // Change icon color based on theme
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Notification',
-                    style: TextStyle(color: isDarkMode ? Colors.white : Color(0xFF0D1445)), // Change text color based on theme
+                    style: TextStyle(
+                        color: isDarkMode
+                            ? Colors.white
+                            : Color(
+                                0xFF0D1445)), // Change text color based on theme
                   ),
                   SizedBox(width: 8.0), // Space between text and icon
                   Padding(
                     padding: const EdgeInsets.only(right: 12),
-                    child: Icon(Icons.arrow_forward_ios, color: isDarkMode ? Colors.white : Color(0xFF0D1445)),
+                    child: Icon(Icons.arrow_forward_ios,
+                        color: isDarkMode ? Colors.white : Color(0xFF0D1445)),
                   ),
                 ],
               ),
               onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => NotificationHistory(),
+                    ));
               },
             ),
-
           ],
         ),
       ),
@@ -211,7 +261,8 @@ class _AppDrawerState extends State<AppDrawer> {
     showDialog(
       context: context,
       builder: (context) {
-        TextEditingController _usernameController = TextEditingController(text: _username);
+        TextEditingController _usernameController =
+            TextEditingController(text: _username);
         return AlertDialog(
           title: Text('Edit Username'),
           content: TextField(
