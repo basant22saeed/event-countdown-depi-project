@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 
 import '../../event.dart';
-import 'event_card.dart';
+import 'event card.dart';
+
 
 class NotificationHistory extends StatelessWidget {
   final List<Event> events;
