@@ -1,6 +1,5 @@
 import 'dart:io';
-import 'package:event_countdown/event.dart';
-import 'package:event_countdown/screens/notification.dart';
+import 'package:event_countdown/screens/notifications/notification.dart';
 import 'package:event_countdown/screens/provider_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -247,7 +246,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => NotificationHistory(),
+                      builder: (context) => NotificationHistory( events: [],),
                     ));
               },
             ),
