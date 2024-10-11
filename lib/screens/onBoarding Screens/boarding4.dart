@@ -1,9 +1,32 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
-class Boarding4 extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+
+class Boarding4 extends StatefulWidget {
   Boarding4({super.key});
 
+  @override
+  State<Boarding4> createState() => _Boarding4State();
+}
+
+class _Boarding4State extends State<Boarding4> {
+  // اسم المستخدم
   TextEditingController userNameController = TextEditingController();
+
+  // صورة المستخدم
+  File? image;
+
+  final imagePicker = ImagePicker();
+  
+  uploadImage() async {
+    var pickedImage = await imagePicker.pickImage(source: ImageSource.camera);
+    setState(() {
+      if (pickedImage != null) {
+        image = File(pickedImage.path);
+      } else {}
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +59,12 @@ class Boarding4 extends StatelessWidget {
 
                 Center(
                   child: Stack(clipBehavior: Clip.none, children: [
-                  //الصورة
+                    //الصورة
                     CircleAvatar(
                       radius: 80,
-                      backgroundImage: AssetImage('assets/images/person.png'),
+                      backgroundImage: image != null
+                          ? FileImage(image!)
+                          : AssetImage('assets/images/person.png'),
                     ),
 
                     // ايقونة التحميل
@@ -50,7 +75,7 @@ class Boarding4 extends StatelessWidget {
                         padding: EdgeInsets.all(12),
                         color: Theme.of(context).colorScheme.primary,
                         shape: CircleBorder(),
-                        onPressed: () {},
+                        onPressed: uploadImage,
                         child: Icon(
                           Icons.add_a_photo,
                           color: Colors.white,
