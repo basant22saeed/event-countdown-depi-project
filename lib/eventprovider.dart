@@ -27,6 +27,7 @@ class EventProvider with ChangeNotifier {
   Future<void> addEvent(Event newEvent) async {
     _events.add(newEvent);
     await _saveEvents();
+    notifyListeners();
   }
 
   Future<void> _saveEvents() async {
@@ -35,5 +36,21 @@ class EventProvider with ChangeNotifier {
     String eventsString = json.encode(eventMaps);
     await prefs.setString('events', eventsString);
     notifyListeners();
+  }
+  // تحديث حدث موجود
+  void updateEvent(int index, Event updatedEvent) {
+    if (index >= 0 && index < _events.length) {
+      _events[index] = updatedEvent;
+      _saveEvents();
+      notifyListeners();
+    }
+  }
+  // حذف حدث
+  void deleteEvent(int index) {
+    if (index >= 0 && index < _events.length) {
+      _events.removeAt(index);
+      _saveEvents();
+      notifyListeners();
+    }
   }
 }

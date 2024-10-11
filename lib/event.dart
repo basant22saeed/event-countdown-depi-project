@@ -8,6 +8,7 @@ class Event {
   Color color;
   String notes;
 
+
   Event({
     required this.title,
     required this.date,
