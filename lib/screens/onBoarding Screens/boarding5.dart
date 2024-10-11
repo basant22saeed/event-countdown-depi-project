@@ -12,21 +12,21 @@ class Boarding5 extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 150),
-              //! الصورة
+              //الصورة
 
               Image.asset('assets/images/woohoo.gif', width: 280, height: 280),
               SizedBox(height: 50),
 
-              // ! العنوان
+              // العنوان
               Text(
-                "Never Miss a Moment!",
+                "You're all set!",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20),
 
-              //! الوصف
+              //الوصف
               Text(
-                "Count down to your special moments and never miss an event again!",
+                "Great job! You're now ready to dive in. Get started and enjoy all the features waiting for you!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20,

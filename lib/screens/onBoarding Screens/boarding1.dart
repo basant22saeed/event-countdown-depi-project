@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 class Boarding1 extends StatelessWidget {
   const Boarding1({super.key});
@@ -13,10 +12,10 @@ class Boarding1 extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 150),
-              //! الصورة
+              // الصورة
 
               Image.asset('assets/images/Target.gif', width: 320, height: 320),
-              //! العنوان
+              // العنوان
 
               SizedBox(height: 20),
 
@@ -26,7 +25,7 @@ class Boarding1 extends StatelessWidget {
               ),
               SizedBox(height: 20),
 
-              //! الوصف
+              // الوصف
               Text(
                 "Count down to your special moments and never miss an event again!",
                 textAlign: TextAlign.center,

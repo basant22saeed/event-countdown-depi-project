@@ -12,10 +12,10 @@ class Boarding3 extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 150),
-              //! الصورة
+              // الصورة
 
               Image.asset('assets/images/bell.gif', width: 280, height: 280),
-              //! العنوان
+              // العنوان
 
               SizedBox(height: 50),
 
@@ -25,7 +25,7 @@ class Boarding3 extends StatelessWidget {
               ),
               SizedBox(height: 20),
 
-              //! الوصف
+              // الوصف
 
               Text(
                 "Stay on top of your schedule with instant notifications for all your upcoming events!",

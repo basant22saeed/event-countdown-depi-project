@@ -13,11 +13,11 @@ class Boarding2 extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 120),
-              //! الصورة
+              //الصورة
 
               Lottie.asset('assets/images/animation1.json',
                   width: 280, height: 310),
-              //! العنوان
+              //العنوان
 
               SizedBox(height: 55),
 
@@ -27,7 +27,7 @@ class Boarding2 extends StatelessWidget {
               ),
               SizedBox(height: 20),
 
-              //! الوصف
+              //الوصف
               Text(
                 "Effortlessly manage your events and deadlines all in one place\nset reminders and never miss a moment!",
                 textAlign: TextAlign.center,

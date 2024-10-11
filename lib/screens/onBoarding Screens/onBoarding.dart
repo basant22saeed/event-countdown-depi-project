@@ -26,7 +26,6 @@ class _OnBoarding1State extends State<OnBoarding1> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool('seenOnboarding', true);
 
-    // Navigate to SplashScreen after onboarding is complete
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => SplashScreen()),
@@ -36,6 +35,7 @@ class _OnBoarding1State extends State<OnBoarding1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(children: [
         //! الصفحات
         PageView(
