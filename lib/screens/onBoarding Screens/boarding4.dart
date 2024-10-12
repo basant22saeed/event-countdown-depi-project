@@ -1,7 +1,6 @@
 import 'dart:io';
-
+import 'package:event_countdown/widgets/dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
 class Boarding4 extends StatefulWidget {
   Boarding4({super.key});
@@ -17,15 +16,18 @@ class _Boarding4State extends State<Boarding4> {
   // صورة المستخدم
   File? image;
 
-  final imagePicker = ImagePicker();
-  
-  uploadImage() async {
-    var pickedImage = await imagePicker.pickImage(source: ImageSource.camera);
-    setState(() {
-      if (pickedImage != null) {
-        image = File(pickedImage.path);
-      } else {}
-    });
+  dialog() {
+    showDialog(
+      context: context,
+      builder: (context) => DialogBox(
+        image: image,
+        onImagePicked: (File newImage) {
+          setState(() {
+            image = newImage;
+          });
+        },
+      ),
+    );
   }
 
   @override
@@ -75,7 +77,7 @@ class _Boarding4State extends State<Boarding4> {
                         padding: EdgeInsets.all(12),
                         color: Theme.of(context).colorScheme.primary,
                         shape: CircleBorder(),
-                        onPressed: uploadImage,
+                        onPressed: dialog,
                         child: Icon(
                           Icons.add_a_photo,
                           color: Colors.white,
