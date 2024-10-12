@@ -1,13 +1,13 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+//! ويدجت يعاد استخدامها -- dialog  -> بسنت سعيد
 class DialogBox extends StatefulWidget {
   DialogBox({super.key, required this.image, required this.onImagePicked});
 
-   File? image;
-   Function(File) onImagePicked;
+  File? image;
+  Function(File) onImagePicked;
 
   @override
   State<DialogBox> createState() => _DialogBoxState();
@@ -20,19 +20,19 @@ class _DialogBoxState extends State<DialogBox> {
     var cameraImage = await imagePicker.pickImage(source: ImageSource.camera);
     setState(() {
       if (cameraImage != null && mounted) {
-      widget.onImagePicked(File(cameraImage.path));  // Call the callback to update the parent
-      
-    } else {}
+        widget.onImagePicked(
+            File(cameraImage.path)); // Call the callback to update the parent
+      } else {}
     });
   }
 
   Future GalleryPicker() async {
     var galleryImage = await imagePicker.pickImage(source: ImageSource.gallery);
     setState(() {
-     if (galleryImage != null && mounted) {
-      widget.onImagePicked(File(galleryImage.path));  // Call the callback to update the parent
-   
-    } else {}
+      if (galleryImage != null && mounted) {
+        widget.onImagePicked(
+            File(galleryImage.path)); // Call the callback to update the parent
+      } else {}
     });
   }
 
@@ -47,7 +47,7 @@ class _DialogBoxState extends State<DialogBox> {
             Container(
               child: GestureDetector(
                 onTap: () async {
-                 await CameraPicker();
+                  await CameraPicker();
                   Navigator.pop(context);
                 },
                 child: Column(
@@ -64,8 +64,8 @@ class _DialogBoxState extends State<DialogBox> {
             ),
             SizedBox(width: 20),
             GestureDetector(
-              onTap: () async{
-              await  GalleryPicker();
+              onTap: () async {
+                await GalleryPicker();
                 Navigator.pop(context);
               },
               child: Container(
