@@ -29,6 +29,10 @@ class _AppDrawerState extends State<AppDrawer> {
       _isNightMode = prefs.getBool('nightMode') ?? false;
       _selectedLanguage = prefs.getString('language') ?? 'En';
       _username = prefs.getString('username') ?? 'UserName';
+      String? imagePath = prefs.getString('profileImage');
+      if (imagePath != null) {
+        _profileImage = File(imagePath);
+      }
     });
   }
 
@@ -37,6 +41,9 @@ class _AppDrawerState extends State<AppDrawer> {
     prefs.setBool('nightMode', _isNightMode);
     prefs.setString('language', _selectedLanguage);
     prefs.setString('username', _username);
+    if (_profileImage != null) {
+      prefs.setString('profileImage', _profileImage!.path);
+    }
   }
 
   Future<void> _pickProfileImage() async {
@@ -70,14 +77,14 @@ class _AppDrawerState extends State<AppDrawer> {
         setState(() {
           _profileImage = File(pickedImage!.path);
         });
+        _saveSettings(); // Save the profile image path
       }
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    bool isDarkMode = Provider.of<ThemeProvider>(context)
-        .isDarkMode; // Get the current theme mode
+    bool isDarkMode = Provider.of<ThemeProvider>(context).isDarkMode;
     return Drawer(
       child: Container(
         color: isDarkMode ? Color(0xff1B1B1B) : Color(0xffBFBFDB),
@@ -92,7 +99,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   'APP NAME',
                   style: TextStyle(
                       color: isDarkMode ? Colors.white : Color(0xFF0D1445),
-                      fontSize: 30), // Change text color based on theme
+                      fontSize: 30),
                 ),
               ],
             ),
@@ -112,7 +119,7 @@ class _AppDrawerState extends State<AppDrawer> {
                             : null,
                         child: _profileImage == null
                             ? Icon(Icons.person,
-                                size: 50, color: Colors.black45)
+                            size: 50, color: Colors.black45)
                             : null,
                       ),
                       Positioned(
@@ -139,8 +146,7 @@ class _AppDrawerState extends State<AppDrawer> {
                           Icon(Icons.person,
                               color: isDarkMode
                                   ? Colors.white
-                                  : Color(
-                                      0xFF0D1445)), // Change icon color based on theme
+                                  : Color(0xFF0D1445)),
                           SizedBox(width: 12.0),
                           Text(
                             _username,
@@ -148,8 +154,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                 color: isDarkMode
                                     ? Colors.white
                                     : Color(0xFF0D1445),
-                                fontSize:
-                                    18), // Change text color based on theme
+                                fontSize: 18),
                           ),
                         ],
                       ),
@@ -159,8 +164,7 @@ class _AppDrawerState extends State<AppDrawer> {
                           icon: Icon(Icons.edit,
                               color: isDarkMode
                                   ? Colors.white
-                                  : Color(
-                                      0xFF0D1445)), // Change icon color based on theme
+                                  : Color(0xFF0D1445)),
                           onPressed: _editUsername,
                         ),
                       ),
@@ -174,7 +178,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 'Settings',
                 style: TextStyle(
                     color: isDarkMode ? Colors.white : Color(0xFF0D1445),
-                    fontSize: 20), // Change text color based on theme
+                    fontSize: 20),
               ),
             ),
             SwitchListTile(
@@ -184,57 +188,48 @@ class _AppDrawerState extends State<AppDrawer> {
               ),
               title: Text('Night mode',
                   style: TextStyle(
-                      color: isDarkMode
-                          ? Colors.white
-                          : Color(
-                              0xFF0D1445))), // Change text color based on theme
-              value: isDarkMode,
+                      color: isDarkMode ? Colors.white : Color(0xFF0D1445))),
+              value: _isNightMode,
               activeColor: Colors.blue,
               onChanged: (bool value) {
+                setState(() {
+                  _isNightMode = value;
+                });
+                _saveSettings(); // Save night mode state
                 final provider =
-                    Provider.of<ThemeProvider>(context, listen: false);
+                Provider.of<ThemeProvider>(context, listen: false);
                 provider.toggleTheme(value);
               },
             ),
             ListTile(
               leading: Icon(Icons.language,
-                  color: isDarkMode
-                      ? Colors.white
-                      : Color(0xFF0D1445)), // Change icon color based on theme
+                  color: isDarkMode ? Colors.white : Color(0xFF0D1445)),
               title: Text('Language',
                   style: TextStyle(
-                      color: isDarkMode
-                          ? Colors.white
-                          : Color(
-                              0xFF0D1445))), // Change text color based on theme
+                      color: isDarkMode ? Colors.white : Color(0xFF0D1445))),
               trailing: Padding(
                 padding: const EdgeInsets.only(right: 12),
                 child: Text(
                   _selectedLanguage,
                   style: TextStyle(
                       color: isDarkMode ? Colors.white : Color(0xFF0D1445),
-                      fontSize: 20), // Change text color based on theme
+                      fontSize: 20),
                 ),
               ),
               onTap: _selectLanguage,
             ),
             ListTile(
               leading: Icon(Icons.notifications,
-                  color: isDarkMode
-                      ? Colors.white
-                      : Color(0xFF0D1445)), // Change icon color based on theme
+                  color: isDarkMode ? Colors.white : Color(0xFF0D1445)),
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Notification',
                     style: TextStyle(
-                        color: isDarkMode
-                            ? Colors.white
-                            : Color(
-                                0xFF0D1445)), // Change text color based on theme
+                        color: isDarkMode ? Colors.white : Color(0xFF0D1445)),
                   ),
-                  SizedBox(width: 8.0), // Space between text and icon
+                  SizedBox(width: 8.0),
                   Padding(
                     padding: const EdgeInsets.only(right: 12),
                     child: Icon(Icons.arrow_forward_ios,
@@ -246,7 +241,8 @@ class _AppDrawerState extends State<AppDrawer> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => NotificationHistory( events: [],),
+                      builder: (context) =>
+                          NotificationHistory(events: []),
                     ));
               },
             ),
@@ -261,7 +257,7 @@ class _AppDrawerState extends State<AppDrawer> {
       context: context,
       builder: (context) {
         TextEditingController _usernameController =
-            TextEditingController(text: _username);
+        TextEditingController(text: _username);
         return AlertDialog(
           title: Text('Edit Username'),
           content: TextField(
