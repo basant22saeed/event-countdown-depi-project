@@ -3,6 +3,7 @@
 import 'package:event_countdown/screens/add_event.dart';
 import 'package:flutter/material.dart';
 import 'package:event_countdown/screens/drawer.dart';
+import 'addeventpage.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -23,7 +24,7 @@ class HomeScreen extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const AddEvent(),
+                    builder: (context) => AddEventPage(),
                   ));
             },
             icon: const Icon(

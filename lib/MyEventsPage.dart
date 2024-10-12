@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'AddEventPage.dart';
-import 'eventview.dart';
+import 'screens/eventview.dart';
 
 import 'EventProvider.dart';
 
