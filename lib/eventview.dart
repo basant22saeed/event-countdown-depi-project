@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'editeventpage.dart';
-import 'MyEventsPage.dart';
+
 import 'event.dart';
 import 'EventProvider.dart';
 import 'dart:async';

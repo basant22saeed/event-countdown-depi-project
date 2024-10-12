@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'AddEventPage.dart';
 import 'eventview.dart';
-import 'editeventpage.dart';
+
 import 'EventProvider.dart';
 
 class MyEventsPage extends StatelessWidget {
