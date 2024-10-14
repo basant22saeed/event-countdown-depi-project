@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
           debugShowCheckedModeBanner: false,
           themeMode: themeProvider.themeMode,
           theme: ThemeData(
-            fontFamily: "SF",
+            // fontFamily: "SF",
             colorScheme: ColorScheme.fromSeed(
               seedColor: Colors.purple,
               surface: const Color(0xffBFBFDB),

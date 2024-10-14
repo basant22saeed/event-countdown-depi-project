@@ -1,7 +1,8 @@
+import 'package:event_countdown/screens/event.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
-import 'event.dart';
+// import 'screens/event.dart';
 
 
 class EventProvider with ChangeNotifier {

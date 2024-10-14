@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../../event.dart';
+import '../event.dart';
 import 'event card.dart';
 
 
