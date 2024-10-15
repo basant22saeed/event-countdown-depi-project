@@ -1,3 +1,6 @@
+
+
+import 'package:event_countdown/screens/notifications/local_notification_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'event.dart';
@@ -27,6 +30,7 @@ class _AddEventPageState extends State<AddEventPage> {
       notes: eventData.notesController.text,
 
     );
+    LocalNotificationService.showScheduledNotification(newEvent);
 
     Provider.of<EventProvider>(context, listen: false).addEvent(newEvent);
 
@@ -105,6 +109,7 @@ class _AddEventPageState extends State<AddEventPage> {
               ),
             ],
           ),
+
           SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

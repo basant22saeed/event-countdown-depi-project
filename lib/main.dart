@@ -1,3 +1,4 @@
+import 'package:event_countdown/screens/notifications/local_notification_service.dart';
 import 'package:event_countdown/screens/onBoarding%20Screens/onBoarding.dart';
 import 'package:event_countdown/screens/provider_drawer.dart';
 import 'package:event_countdown/screens/splash.dart';
@@ -8,6 +9,7 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await LocalNotificationService.init();
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
   runApp(const MyApp());

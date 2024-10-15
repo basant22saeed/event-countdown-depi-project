@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class Event {
@@ -43,5 +44,8 @@ class Event {
       color: Color(map['color']),
       notes: map['notes'],
     );
+
   }
+
 }
+
