@@ -51,16 +51,62 @@ class _AppDrawerState extends State<AppDrawer> {
     final action = await showDialog<int>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Choose an option'),
+        title: Text(
+          "Upload image",
+          style: TextStyle(fontSize: 24),
+        ),
         actions: [
-          TextButton(
-            child: Text('Take a Picture'),
-            onPressed: () => Navigator.of(context).pop(0),
-          ),
-          TextButton(
-            child: Text('Select from Gallery'),
-            onPressed: () => Navigator.of(context).pop(1),
-          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextButton(
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.camera_alt,
+                          color: Theme.of(context).colorScheme.primary,
+                          size: 50,
+                        ),
+                        Text(
+                          'Camera',
+                          style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                        ),
+                      ],
+                    ),
+                    onPressed: () => Navigator.of(context).pop(0),
+                  ),
+                ],
+              ),
+              SizedBox(width: 50),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextButton(
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.photo_library,
+                          color: Theme.of(context).colorScheme.primary,
+                          size: 50,
+                        ),
+                        Text(
+                          'Gallery',
+                          style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                        ),
+                      ],
+                    ),
+                    onPressed: () => Navigator.of(context).pop(1),
+                  ),
+                ],
+              ),
+            ],
+          )
+
+
+
         ],
       ),
     );
@@ -143,28 +189,30 @@ class _AppDrawerState extends State<AppDrawer> {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.person,
-                              color: isDarkMode
-                                  ? Colors.white
-                                  : Color(0xFF0D1445)),
+                          Icon(Icons.person, color: isDarkMode ? Colors.white : Color(0xFF0D1445)),
                           SizedBox(width: 12.0),
+                          // check username that entered by the user and replaced it
                           Text(
-                            _username,
+                            _username != "UserName" ? _username : "",
                             style: TextStyle(
-                                color: isDarkMode
-                                    ? Colors.white
-                                    : Color(0xFF0D1445),
+                                color: isDarkMode ? Colors.white : Color(0xFF0D1445),
                                 fontSize: 18),
                           ),
+                          // the default "UserName" of the drawer
+                          if (_username == "UserName")
+                            Text(
+                              "Username",
+                              style: TextStyle(
+                                color: isDarkMode ? Colors.white : Color(0xFF0D1445),
+                                fontSize: 18,
+                              ),
+                            ),
                         ],
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 12),
                         child: IconButton(
-                          icon: Icon(Icons.edit,
-                              color: isDarkMode
-                                  ? Colors.white
-                                  : Color(0xFF0D1445)),
+                          icon: Icon(Icons.edit, color: isDarkMode ? Colors.white : Color(0xFF0D1445)),
                           onPressed: _editUsername,
                         ),
                       ),
@@ -251,13 +299,13 @@ class _AppDrawerState extends State<AppDrawer> {
       ),
     );
   }
-
   void _editUsername() {
     showDialog(
       context: context,
       builder: (context) {
-        TextEditingController _usernameController =
-        TextEditingController(text: _username);
+        // Initialize the controller with an empty string instead of the current username
+        TextEditingController _usernameController = TextEditingController();
+
         return AlertDialog(
           title: Text('Edit Username'),
           content: TextField(
@@ -268,8 +316,11 @@ class _AppDrawerState extends State<AppDrawer> {
             TextButton(
               onPressed: () {
                 setState(() {
-                  _username = _usernameController.text;
-                  _saveSettings();
+                  // Only update username if the text field is not empty
+                  if (_usernameController.text.isNotEmpty) {
+                    _username = _usernameController.text;
+                    _saveSettings();
+                  }
                 });
                 Navigator.of(context).pop();
               },

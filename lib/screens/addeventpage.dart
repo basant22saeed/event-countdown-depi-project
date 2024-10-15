@@ -36,7 +36,7 @@ class _AddEventPageState extends State<AddEventPage> {
 
   @override
   Widget build(BuildContext context) {return Scaffold(
-    backgroundColor: Color(0xFFbfbfdb),
+    //backgroundColor: Color(0xFFbfbfdb),
     appBar: AppBar(
       title: Text('Add Event'), centerTitle: true,
     ),
