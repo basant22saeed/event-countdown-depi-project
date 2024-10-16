@@ -1,12 +1,15 @@
 //! الصفحة الرئيسية -> بسنت سعيد
 
-import 'package:event_countdown/screens/add_event.dart';
+import 'package:event_countdown/screens/eventdatamodel.dart';
 import 'package:flutter/material.dart';
 import 'package:event_countdown/screens/drawer.dart';
 import 'addeventpage.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+   HomeScreen({super.key});
+  
+  List <EventDataModel> events = [];
+
 
   @override
   Widget build(BuildContext context) {

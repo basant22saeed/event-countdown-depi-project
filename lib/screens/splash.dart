@@ -1,6 +1,7 @@
 //! صفحة السبلاش تظهر مع فتح التطبيق -> بسنت سعيد
 
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:event_countdown/screens/MyEventsPage.dart';
 import 'package:event_countdown/screens/home.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class SplashScreen extends StatelessWidget {
       ),
       splashIconSize: 400,
       duration: 2400,
-      nextScreen: HomeScreen(),
+      nextScreen: MyEventsPage(),
       backgroundColor: const Color(0xffF5F3F5),
     );
   }

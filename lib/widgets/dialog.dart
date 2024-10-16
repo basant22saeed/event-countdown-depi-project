@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 //! ويدجت يعاد استخدامها -- dialog  -> بسنت سعيد
+// ignore: must_be_immutable
 class DialogBox extends StatefulWidget {
   DialogBox({super.key, required this.image, required this.onImagePicked});
 
