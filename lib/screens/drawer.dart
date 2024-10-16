@@ -142,7 +142,7 @@ class _AppDrawerState extends State<AppDrawer> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'APP NAME',
+                  'Eventaty',
                   style: TextStyle(
                       color: isDarkMode ? Colors.white : Color(0xFF0D1445),
                       fontSize: 30),
@@ -273,7 +273,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Notification',
+                    'Notifications',
                     style: TextStyle(
                         color: isDarkMode ? Colors.white : Color(0xFF0D1445)),
                   ),

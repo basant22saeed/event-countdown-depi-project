@@ -16,7 +16,7 @@ class NotificationHistory extends StatelessWidget {
       appBar: AppBar(
 
         title: Text(
-          'Notification',
+          'Notifications',
           style: TextStyle(fontSize: 22),
         ),
       ),

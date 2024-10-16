@@ -1,4 +1,5 @@
 import 'package:event_countdown/generated/l10n.dart';
+import 'package:event_countdown/screens/event_provider.dart';
 import 'package:event_countdown/screens/notifications/local_notification_service.dart';
 import 'package:event_countdown/screens/onBoarding%20Screens/onBoarding.dart';
 import 'package:event_countdown/screens/provider_drawer.dart';
@@ -13,7 +14,14 @@ void main() async {
   await LocalNotificationService.init();
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => EventProvider()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -58,7 +66,6 @@ class _MyAppState extends State<MyApp> {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: S.delegate.supportedLocales,
-
 
           debugShowCheckedModeBanner: false,
           themeMode: themeProvider.themeMode,
