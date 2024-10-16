@@ -278,12 +278,12 @@ class _EventViewState extends State<EventView> {
                   child: ElevatedButton(
                     onPressed: () {
                       // الانتقال إلى صفحة EditEventPage
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EditEventPage(event: widget.event, eventIndex: widget.eventIndex), // استخدم المتغير المناسب eventIndex حسب صفحتك
-                        ),
-                      );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => EditEventPage(event: widget.event, eventIndex: widget.eventIndex), // استخدم المتغير المناسب eventIndex حسب صفحتك
+                      //   ),
+                      // );
                     },
                     style: ElevatedButton.styleFrom(
                      backgroundColor: Colors.blue, // لون الزر

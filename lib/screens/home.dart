@@ -1,23 +1,23 @@
 //! الصفحة الرئيسية -> بسنت سعيد
 
+import 'package:event_countdown/generated/l10n.dart';
 import 'package:event_countdown/screens/eventdatamodel.dart';
 import 'package:flutter/material.dart';
 import 'package:event_countdown/screens/drawer.dart';
 import 'addeventpage.dart';
 
 class HomeScreen extends StatelessWidget {
-   HomeScreen({super.key});
-  
-  List <EventDataModel> events = [];
+  HomeScreen({super.key});
 
+  List<EventDataModel> events = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          "My Events",
+        title: Text(
+          S.of(context).appName,
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         actions: [

@@ -1,11 +1,12 @@
+import 'package:event_countdown/generated/l10n.dart';
 import 'package:event_countdown/screens/notifications/local_notification_service.dart';
 import 'package:event_countdown/screens/onBoarding%20Screens/onBoarding.dart';
 import 'package:event_countdown/screens/provider_drawer.dart';
 import 'package:event_countdown/screens/splash.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,15 +43,23 @@ class _MyAppState extends State<MyApp> {
   }
 
   @override
-  Widget build(BuildContext context)
-  {
-    //  زودت جزء ال ( mode theme)
+  Widget build(BuildContext context) {
+    //!  زودت جزء ال ( mode theme)
     return ChangeNotifierProvider(
       create: (context) => ThemeProvider(),
-      builder: (context, child)
-      {
+      builder: (context, child) {
         final themeProvider = Provider.of<ThemeProvider>(context);
         return MaterialApp(
+          //!    تحديد لغة التطبيق
+          localizationsDelegates: [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
+
+
           debugShowCheckedModeBanner: false,
           themeMode: themeProvider.themeMode,
           theme: ThemeData(
