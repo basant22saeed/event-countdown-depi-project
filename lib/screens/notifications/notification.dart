@@ -5,10 +5,17 @@ import '../../model/event.dart';
 import 'event card.dart';
 
 
-class NotificationHistory extends StatelessWidget {
-  final List<Event> events;
-  NotificationHistory({required this.events});
 
+
+class NotificationHistory extends StatefulWidget {
+
+  static List<Event> notifiedEvents = [];
+
+  @override
+  State<NotificationHistory> createState() => _NotificationHistoryState();
+}
+
+class _NotificationHistoryState extends State<NotificationHistory> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,14 +27,15 @@ class NotificationHistory extends StatelessWidget {
           style: TextStyle(fontSize: 22),
         ),
       ),
-      body:  ListView.builder(
-        itemCount: events.length,
+      body: NotificationHistory.notifiedEvents.isNotEmpty
+       ? ListView.builder(
+        itemCount: NotificationHistory.notifiedEvents.length,
         itemBuilder: (context, index) {
-          final event = events[index];
-          return EventCard(event: event);
+          final eventData = NotificationHistory.notifiedEvents[index];
+          return EventCard(eventData: eventData);
         },
-      ),
-
+      )
+         : Center(child: Text('No Notification History'),)
     );
   }
 }

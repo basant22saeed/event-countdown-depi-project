@@ -1,27 +1,31 @@
 import 'dart:developer';
 
 import 'package:event_countdown/model/event.dart';
+import 'package:event_countdown/screens/notifications/notification.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
-class LocalNotificationService{
+class LocalNotificationService {
   late final Event event;
-
+  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   static FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
+  FlutterLocalNotificationsPlugin();
+  static List<Event> notifiedEvents = [];
 
-  static  onTap(NotificationResponse notificationResponse) {}
+
 
   static Future init()async{
-   InitializationSettings settings = InitializationSettings(
-   android: AndroidInitializationSettings('@mipmap/ic_launcher'),
-     iOS: DarwinInitializationSettings()
-   );
+    InitializationSettings settings = InitializationSettings(
+        android: AndroidInitializationSettings('@mipmap/ic_launcher'),
+        iOS: DarwinInitializationSettings()
+    );
 
-   flutterLocalNotificationsPlugin.initialize(settings,
-   onDidReceiveNotificationResponse: onTap,
-   onDidReceiveBackgroundNotificationResponse: onTap);
+    flutterLocalNotificationsPlugin.initialize(settings,
+      onDidReceiveNotificationResponse: onTap,
+      onDidReceiveBackgroundNotificationResponse: onTap
+    );
 
   }
   static void showScheduledNotification(Event event) async{
@@ -44,7 +48,7 @@ class LocalNotificationService{
       event.date.day,
       event.time.hour,
       event.time.minute,
-    ).subtract(Duration(hours: 2));
+    );
     await flutterLocalNotificationsPlugin.zonedSchedule(
         1,
         event.title,
@@ -53,6 +57,14 @@ class LocalNotificationService{
         details,
         uiLocalNotificationDateInterpretation:
         UILocalNotificationDateInterpretation.absoluteTime);
+    NotificationHistory.notifiedEvents.add(event);
 
   }
-}
+  static onTap(NotificationResponse notificationResponse) {
+    navigatorKey.currentState?.push(MaterialPageRoute(
+      builder: (context) => NotificationHistory(),
+    ));
+  }
+  }
+
+

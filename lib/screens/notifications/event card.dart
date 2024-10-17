@@ -1,12 +1,12 @@
-import 'package:event_countdown/screens/notifications/local_notification_service.dart';
+
 import 'package:flutter/material.dart';
 
 import '../../model/event.dart';
 
 class EventCard extends StatelessWidget{
-  final Event event;
+  final Event eventData;
 
-  EventCard({required this.event});
+  EventCard({required this.eventData});
   @override
   Widget build(BuildContext context) {
 
@@ -22,7 +22,7 @@ class EventCard extends StatelessWidget{
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                event.title,
+                eventData.title,
                 style: TextStyle(
                     fontSize: 30, fontWeight: FontWeight.bold),
               ),
@@ -36,7 +36,7 @@ class EventCard extends StatelessWidget{
                     width: 5,
                   ),
                   Text(
-                    'Date: ${event.date.toIso8601String().split(' ')[0]}',
+                    'Date: ${eventData.date.toIso8601String()}',
                     style: TextStyle(fontSize: 16),
                   )
                 ],
@@ -51,7 +51,7 @@ class EventCard extends StatelessWidget{
                     width: 5,
                   ),
                   Text(
-                    'Time: ${event.time.format(context)}',
+                    'Time: ${eventData.time.format(context)}',
                     style: TextStyle(fontSize: 16),
                   )
                 ],
@@ -66,7 +66,7 @@ class EventCard extends StatelessWidget{
                     width: 5,
                   ),
                   Text(
-                    'Notes: ${event.notes}',
+                    'Notes: ${eventData.notes}',
                     style: TextStyle(fontSize: 16),
                   )
                 ],
