@@ -1,6 +1,6 @@
-// Edit event page ----> Nourhan
+//! Edit event page ----> Nourhan
 
-
+import 'package:event_countdown/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'event.dart';
@@ -53,7 +53,7 @@ class _EditEventPageState extends State<EditEventPage> {
         .updateEvent(widget.eventIndex, editedEvent);
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Event updated successfully!')),
+      SnackBar(content: Text(S.of(context).event_edited_snackbar)),
     );
     Navigator.pop(context);
   }
@@ -61,18 +61,22 @@ class _EditEventPageState extends State<EditEventPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('Edit Event'),
+        title: Text(S.of(context).edit_event),
         centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
+        child: 
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 20),
-            Text('Edit event details', style: TextStyle(fontSize: 16)),
-            _buildTextField('Enter Event Title', eventData.titleController),
+            Text(S.of(context).edit_event_details,
+                style: TextStyle(fontSize: 16)),
+            _buildTextField(
+                S.of(context).event_title, eventData.titleController),
             SizedBox(height: 20),
             _buildDatePicker(),
             SizedBox(height: 20),
@@ -87,7 +91,7 @@ class _EditEventPageState extends State<EditEventPage> {
             Center(
               child: ElevatedButton(
                 onPressed: _saveEditedEvent,
-                child: Text('Save'),
+                child: Text(S.of(context).save_button),
               ),
             ),
           ],
@@ -111,18 +115,19 @@ class _EditEventPageState extends State<EditEventPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Notes', style: TextStyle(fontSize: 16)),
-        _buildTextField('Describe your event', eventData.notesController),
+        Text(S.of(context).notes_title, style: TextStyle(fontSize: 16)),
+        _buildTextField(
+            S.of(context).notes_hint_text, eventData.notesController),
       ],
     );
   }
 
   Widget _buildDatePicker() {
     return _buildPicker(
-      title: 'Date',
+      title: S.of(context).Date,
       displayText: eventData.selectedDate != null
           ? '${eventData.selectedDate}'.split(' ')[0]
-          : 'No Date Selected',
+          : S.of(context).event_date_initial_value,
       onEdit: () async {
         final pickedDate = await showDatePicker(
           context: context,
@@ -141,10 +146,10 @@ class _EditEventPageState extends State<EditEventPage> {
 
   Widget _buildTimePicker() {
     return _buildPicker(
-      title: 'Time',
+      title: S.of(context).Time,
       displayText: eventData.selectedTime != null
           ? eventData.selectedTime!.format(context)
-          : 'No Time Selected',
+          : S.of(context).event_time_initial_value,
       onEdit: () async {
         final pickedTime = await showTimePicker(
           context: context,
@@ -161,16 +166,16 @@ class _EditEventPageState extends State<EditEventPage> {
 
   Widget _buildIconPicker() {
     return _buildPicker(
-      title: 'Icon',
+      title: S.of(context).Icon,
       displayWidget: eventData.selectedIcon.isNotEmpty
           ? Image.asset(eventData.selectedIcon, width: 30, height: 30)
-          : Text('No Icon Selected'),
+          : Text(S.of(context).event_icon_initial_value),
       onEdit: () {
         showDialog(
           context: context,
           builder: (context) {
             return AlertDialog(
-              title: Text('Choose Icon'),
+              title: Text(S.of(context).choose_icon),
               content: SingleChildScrollView(
                 child: Wrap(
                   spacing: 10,
@@ -201,7 +206,7 @@ class _EditEventPageState extends State<EditEventPage> {
 
   Widget _buildColorPicker() {
     return _buildPicker(
-      title: 'Color',
+      title: S.of(context).Color,
       displayWidget: Container(
         width: 30,
         height: 30,
@@ -212,7 +217,7 @@ class _EditEventPageState extends State<EditEventPage> {
           context: context,
           builder: (context) {
             return AlertDialog(
-              title: Text('Choose Color'),
+              title: Text(S.of(context).choose_color),
               content: SingleChildScrollView(
                 child: Wrap(
                   spacing: 10, // space between columns
@@ -267,5 +272,3 @@ class _EditEventPageState extends State<EditEventPage> {
     );
   }
 }
-
-

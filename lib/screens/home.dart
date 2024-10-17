@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          S.of(context).appName,
+          S.of(context).app_name,
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         actions: [
@@ -39,28 +39,31 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-body: ListView.builder(
-  itemCount: eventProvider.events.length,
-  itemBuilder: (context, index) {
-    final event = eventProvider.events[index];
-    return ListTile(
-      leading: Image.asset(event.icon, width: 30, height: 30), // Use Image.asset for icon
-      title: Text(event.title),
-      subtitle: Text('${event.date} at ${event.time.hour}:${event.time.minute}'),
-      tileColor: event.color,
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => EventView(event: event, eventIndex: index),
-          ),
-        );
-      },
+      body: ListView.builder(
+        itemCount: eventProvider.events.length,
+        itemBuilder: (context, index) {
+          final event = eventProvider.events[index];
+          return ListTile(
+            leading: Image.asset(event.icon,
+                width: 30, height: 30), // Use Image.asset for icon
+            title: Text(event.title),
+            subtitle: Text(
+                '${event.date} at ${event.time.hour}:${event.time.minute}'),
+            tileColor: event.color,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      EventView(event: event, eventIndex: index),
+                ),
+              );
+            },
 
-      // You can add more details here
-    );
-  },
-),
+            // You can add more details here
+          );
+        },
+      ),
 //!           الصفحة الجانبية للاعدادات-> بشمهندسة نورهان
       drawer: AppDrawer(),
     );

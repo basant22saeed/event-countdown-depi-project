@@ -49,7 +49,7 @@ class _OnBoarding1State extends State<OnBoarding1> {
             Boarding1(),
             Boarding2(),
             Boarding3(),
-            Boarding4(),
+            // Boarding4(),
             Boarding5(),
           ],
         ),
@@ -58,7 +58,7 @@ class _OnBoarding1State extends State<OnBoarding1> {
         onLastPage
             ? Container()
             : GestureDetector(
-                onTap: () => _controller.jumpToPage(5),
+                onTap: () => _controller.jumpToPage(4),
                 child: Container(
                   alignment: Alignment(0.75, -0.82),
                   child: Text(

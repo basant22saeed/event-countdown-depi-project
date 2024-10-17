@@ -22,6 +22,57 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "appName": MessageLookupByLibrary.simpleMessage("Event Countdown")
+        "Color": MessageLookupByLibrary.simpleMessage("Color"),
+        "Date": MessageLookupByLibrary.simpleMessage("Date"),
+        "Days": MessageLookupByLibrary.simpleMessage("Days"),
+        "Edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "Hours": MessageLookupByLibrary.simpleMessage("Hours"),
+        "Icon": MessageLookupByLibrary.simpleMessage("Icon"),
+        "Minutes": MessageLookupByLibrary.simpleMessage("Minutes"),
+        "Seconds": MessageLookupByLibrary.simpleMessage("Seconds"),
+        "Time": MessageLookupByLibrary.simpleMessage("Time"),
+        "add_event": MessageLookupByLibrary.simpleMessage("Add Event"),
+        "app_name": MessageLookupByLibrary.simpleMessage("Event Countdown"),
+        "ar_language_label": MessageLookupByLibrary.simpleMessage("Ar"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "choose_color": MessageLookupByLibrary.simpleMessage("Choose Color"),
+        "choose_icon": MessageLookupByLibrary.simpleMessage("Choose Icon"),
+        "date_picker": MessageLookupByLibrary.simpleMessage("Set Date"),
+        "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+        "delete_event_confirmation": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to delete this event?"),
+        "edit_event": MessageLookupByLibrary.simpleMessage("Edit Event"),
+        "edit_event_details":
+            MessageLookupByLibrary.simpleMessage("Edit Event Details"),
+        "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
+        "en_language_label": MessageLookupByLibrary.simpleMessage("En"),
+        "event_color_initial_value":
+            MessageLookupByLibrary.simpleMessage("No Color Selected"),
+        "event_date_initial_value":
+            MessageLookupByLibrary.simpleMessage("No Date Selected"),
+        "event_deleted_snackbar":
+            MessageLookupByLibrary.simpleMessage("Event deleted successfully!"),
+        "event_details": MessageLookupByLibrary.simpleMessage("Event Details"),
+        "event_edited_snackbar": MessageLookupByLibrary.simpleMessage(
+            "\'Event updated successfully!\'"),
+        "event_hint_text":
+            MessageLookupByLibrary.simpleMessage("What is the event about?"),
+        "event_icon_initial_value":
+            MessageLookupByLibrary.simpleMessage("No Icon Selected"),
+        "event_time_initial_value":
+            MessageLookupByLibrary.simpleMessage("No Time Selected"),
+        "event_title":
+            MessageLookupByLibrary.simpleMessage("What is the Event Title?"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "menu_button": MessageLookupByLibrary.simpleMessage("Menu"),
+        "night_mode": MessageLookupByLibrary.simpleMessage("Night Mode"),
+        "notes_hint_text":
+            MessageLookupByLibrary.simpleMessage("Describe the event"),
+        "notes_title": MessageLookupByLibrary.simpleMessage("Notes"),
+        "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+        "profile_picture":
+            MessageLookupByLibrary.simpleMessage("Profile Picture"),
+        "save_button": MessageLookupByLibrary.simpleMessage("Save"),
+        "time_picker": MessageLookupByLibrary.simpleMessage("Set Time")
       };
 }

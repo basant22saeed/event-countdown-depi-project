@@ -19,14 +19,14 @@ class Boarding5 extends StatelessWidget {
 
               // العنوان
               Text(
-                "You're all set!",
+                "Let's Dive in!",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20),
 
               //الوصف
               Text(
-                "Great job! You're now ready to dive in. Get started and enjoy all the features waiting for you!",
+                "Get started and enjoy all the features waiting for you!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20,
