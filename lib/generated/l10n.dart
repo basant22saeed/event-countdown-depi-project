@@ -150,20 +150,20 @@ class S {
     );
   }
 
-  /// `What is the event about?`
+  /// `Enter your Event`
   String get event_hint_text {
     return Intl.message(
-      'What is the event about?',
+      'Enter your Event',
       name: 'event_hint_text',
       desc: '',
       args: [],
     );
   }
 
-  /// `What is the Event Title?`
+  /// `Event Title`
   String get event_title {
     return Intl.message(
-      'What is the Event Title?',
+      'Event Title',
       name: 'event_title',
       desc: '',
       args: [],
@@ -230,20 +230,20 @@ class S {
     );
   }
 
-  /// `Set Date`
+  /// `Set Date >`
   String get date_picker {
     return Intl.message(
-      'Set Date',
+      'Set Date >',
       name: 'date_picker',
       desc: '',
       args: [],
     );
   }
 
-  /// `Set Time`
+  /// `Set Time >`
   String get time_picker {
     return Intl.message(
-      'Set Time',
+      'Set Time >',
       name: 'time_picker',
       desc: '',
       args: [],
@@ -270,20 +270,20 @@ class S {
     );
   }
 
-  /// `Choose Icon`
+  /// `Choose Icon >`
   String get choose_icon {
     return Intl.message(
-      'Choose Icon',
+      'Choose Icon >',
       name: 'choose_icon',
       desc: '',
       args: [],
     );
   }
 
-  /// `Choose Color`
+  /// `Choose Color >`
   String get choose_color {
     return Intl.message(
-      'Choose Color',
+      'Choose Color >',
       name: 'choose_color',
       desc: '',
       args: [],
@@ -360,40 +360,40 @@ class S {
     );
   }
 
-  /// `Days`
+  /// `Day`
   String get Days {
     return Intl.message(
-      'Days',
+      'Day',
       name: 'Days',
       desc: '',
       args: [],
     );
   }
 
-  /// `Hours`
+  /// `Hour`
   String get Hours {
     return Intl.message(
-      'Hours',
+      'Hour',
       name: 'Hours',
       desc: '',
       args: [],
     );
   }
 
-  /// `Minutes`
+  /// `Minute`
   String get Minutes {
     return Intl.message(
-      'Minutes',
+      'Minute',
       name: 'Minutes',
       desc: '',
       args: [],
     );
   }
 
-  /// `Seconds`
+  /// `Second`
   String get Seconds {
     return Intl.message(
-      'Seconds',
+      'Second',
       name: 'Seconds',
       desc: '',
       args: [],
@@ -430,20 +430,30 @@ class S {
     );
   }
 
-  /// `'Event updated successfully!'`
+  /// `Event Added Successfully!`
+  String get event_added_snackbar {
+    return Intl.message(
+      'Event Added Successfully!',
+      name: 'event_added_snackbar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Event Updated Successfully!`
   String get event_edited_snackbar {
     return Intl.message(
-      '\'Event updated successfully!\'',
+      'Event Updated Successfully!',
       name: 'event_edited_snackbar',
       desc: '',
       args: [],
     );
   }
 
-  /// `Event deleted successfully!`
+  /// `Event Deleted Successfully!`
   String get event_deleted_snackbar {
     return Intl.message(
-      'Event deleted successfully!',
+      'Event Deleted Successfully!',
       name: 'event_deleted_snackbar',
       desc: '',
       args: [],

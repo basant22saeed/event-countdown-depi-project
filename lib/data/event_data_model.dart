@@ -41,15 +41,15 @@ class EventDataModel {
     'assets/images/30.png',
   ];
   List<Color> availableColors = [
-    Colors.red,
-    Colors.green,
-    Colors.blue,
-    Colors.yellow,
-    Colors.orange,
-    Colors.purple,
-    Colors.pink,
-    Colors.brown,
+    const Color(0xffa85f4d),
+    const Color(0xff558b6e),
+    const Color(0xffe98a15),
+    const Color(0xff1f7a8c),
+    const Color(0xff963128),
+    const Color(0xffff6b6b),
+    const Color(0xff45462a),
+    const Color(0xff595e89),
+    const Color(0xfff9cb40),
+    const Color(0xffa76571),
   ];
-
 }
-

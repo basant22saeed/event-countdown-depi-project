@@ -1,4 +1,5 @@
 import 'package:event_countdown/data/event_provider.dart';
+import 'package:event_countdown/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'edit_event_page.dart';
@@ -9,7 +10,7 @@ class EventView extends StatefulWidget {
   final Event event;
   final int eventIndex;
 
-  EventView({required this.event,required this.eventIndex});
+  EventView({required this.event, required this.eventIndex});
 
   @override
   _EventViewState createState() => _EventViewState();
@@ -63,16 +64,15 @@ class _EventViewState extends State<EventView> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.event.title),
-        centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // عنوان تفاصيل الحدث
             Text(
-              "Event Details",
+              S.of(context).event_details,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
@@ -82,9 +82,9 @@ class _EventViewState extends State<EventView> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // الأيقونة الخاصة بالحدث
-                Image.asset(widget.event.icon, width: 60, height: 100),
+                Image.asset(widget.event.icon, width: 80, height: 110),
 
-                SizedBox(width: 10), // مسافة بين الأيقونة والنص
+                SizedBox(width: 20), // مسافة بين الأيقونة والنص
 
                 Expanded(
                   child: Column(
@@ -92,44 +92,62 @@ class _EventViewState extends State<EventView> {
                     children: [
                       // النص "What is the event about?"
                       Text(
-                        'What is the event about?',
-                        style: TextStyle(fontSize: 14),
+                        S.of(context).event_title,
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 15),
 
                       // حقل إدخال للعنوان
-                      TextField(
-                        controller: TextEditingController(text: widget.event.title),
-                        decoration: InputDecoration(
-                          hintText: 'What is the Event Title?',
-                          hintStyle: TextStyle(color: Colors.grey.withOpacity(0.5)),
-                          border: OutlineInputBorder(),
-                        ),
+                      Text(
+                        "${TextEditingController(text: widget.event.title).text}",
+                        style: TextStyle(fontSize: 18),
                       ),
+                      // TextField(
+                      //   controller:
+                      //       TextEditingController(text: widget.event.title),
+                      //   decoration: InputDecoration(
+                      //     hintText: S.of(context).event_hint_text,
+                      //     hintStyle:
+                      //         TextStyle(color: Colors.grey.withOpacity(0.5)),
+                      //     border: OutlineInputBorder(),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
               ],
             ),
             SizedBox(height: 20),
-            Text('Notes', style: TextStyle(fontSize: 16)),
-            TextField(
-              controller: TextEditingController(text: widget.event.notes),
-              decoration: InputDecoration(
-                hintText: 'Describe your Event',
-                hintStyle: TextStyle(color: Colors.grey.withOpacity(0.5)),
-                border: OutlineInputBorder(),
-              ),
-            ),
 
-            SizedBox(height: 20),
+            // الملاحظات
+            Text(S.of(context).notes_title,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            SizedBox(height: 15),
+            Text(
+              "${TextEditingController(text: widget.event.notes).text}",
+              style: TextStyle(fontSize: 18),
+            ),
+            // TextField(
+            //   controller: TextEditingController(text: widget.event.notes),
+            //   decoration: InputDecoration(
+            //     hintText: S.of(context).notes_hint_text,
+            //     hintStyle: TextStyle(color: Colors.grey.withOpacity(0.5)),
+            //     border: OutlineInputBorder(),
+            //   ),
+            // ),
+
+            SizedBox(height: 40),
+
+            // التاريخ
 
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween, // لجعل النص في اليمين والبيانات في اليسار
+              mainAxisAlignment: MainAxisAlignment
+                  .spaceBetween, // لجعل النص في اليمين والبيانات في اليسار
               children: [
                 Text(
-                  'Date',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  S.of(context).Date,
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 Text(
                   '${widget.event.date.year}-${widget.event.date.month}-${widget.event.date.day}',
@@ -138,15 +156,15 @@ class _EventViewState extends State<EventView> {
               ],
             ),
 
-            SizedBox(height: 10),
-
-
+            SizedBox(height: 20),
+            // الوقت
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween, // لجعل النص في اليمين والبيانات في اليسار
+              mainAxisAlignment: MainAxisAlignment
+                  .spaceBetween, // لجعل النص في اليمين والبيانات في اليسار
               children: [
                 Text(
-                  'Time',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  S.of(context).Time,
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 Text(
                   '${widget.event.time.hour}:${widget.event.time.minute}',
@@ -154,13 +172,14 @@ class _EventViewState extends State<EventView> {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 40),
 
             // العدّاد
             Container(
               padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.blue[900], // اللون الأزرق الغامق للصندوق الكبير
+                color: const Color.fromARGB(
+                    255, 0, 27, 67), // اللون الأزرق الغامق للصندوق الكبير
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
@@ -177,13 +196,17 @@ class _EventViewState extends State<EventView> {
                       child: Column(
                         children: [
                           Text(
-                            "Days",
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            S.of(context).Days,
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           SizedBox(height: 10),
                           Text(
                             "${remainingTime.inDays}",
-                            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.blue),
+                            style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.purple),
                           ),
                         ],
                       ),
@@ -202,13 +225,17 @@ class _EventViewState extends State<EventView> {
                       child: Column(
                         children: [
                           Text(
-                            "Hours",
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            S.of(context).Hours,
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           SizedBox(height: 10),
                           Text(
                             "${remainingTime.inHours % 24}",
-                            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.blue),
+                            style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.purple),
                           ),
                         ],
                       ),
@@ -227,13 +254,17 @@ class _EventViewState extends State<EventView> {
                       child: Column(
                         children: [
                           Text(
-                            "Min.",
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            S.of(context).Minutes,
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           SizedBox(height: 10),
                           Text(
                             "${remainingTime.inMinutes % 60}",
-                            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.blue),
+                            style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.purple),
                           ),
                         ],
                       ),
@@ -252,13 +283,17 @@ class _EventViewState extends State<EventView> {
                       child: Column(
                         children: [
                           Text(
-                            "Sec.",
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            S.of(context).Seconds,
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           SizedBox(height: 10),
                           Text(
                             "${remainingTime.inSeconds % 60}",
-                            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.blue),
+                            style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.purple),
                           ),
                         ],
                       ),
@@ -271,25 +306,30 @@ class _EventViewState extends State<EventView> {
 
             // Row يحتوي على زر Edit وزر Delete
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween, // لجعل الزرين على الجانبين
+              mainAxisAlignment:
+                  MainAxisAlignment.spaceBetween, // لجعل الزرين على الجانبين
               children: [
                 // زر Edit
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                       // الانتقال إلى صفحة EditEventPage
+                      // الانتقال إلى صفحة EditEventPage
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => EditEventPage(event: widget.event, eventIndex: widget.eventIndex), // استخدم المتغير المناسب eventIndex حسب صفحتك
+                          builder: (context) => EditEventPage(
+                              event: widget.event,
+                              eventIndex: widget
+                                  .eventIndex), // استخدم المتغير المناسب eventIndex حسب صفحتك
                         ),
-                       );
+                      );
                     },
                     style: ElevatedButton.styleFrom(
-                     backgroundColor: Colors.blue, // لون الزر
+                      backgroundColor: Colors.blue, // لون الزر
                       padding: EdgeInsets.symmetric(vertical: 15), // حجم الزر
                     ),
-                    child: Text('Edit', style: TextStyle(fontSize: 18,color: Colors.white)),
+                    child: Text(S.of(context).Edit,
+                        style: TextStyle(fontSize: 18, color: Colors.white)),
                   ),
                 ),
 
@@ -304,23 +344,30 @@ class _EventViewState extends State<EventView> {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: Text("Delete Event"),
-                            content: Text("Are you sure you want to delete this event?"),
+                            title: Text(S.of(context).delete),
+                            content:
+                                Text(S.of(context).delete_event_confirmation),
                             actions: [
                               TextButton(
                                 onPressed: () {
-                                  Navigator.of(context).pop(); // إغلاق الـ Dialog بدون حذف
+                                  Navigator.of(context)
+                                      .pop(); // إغلاق الـ Dialog بدون حذف
                                 },
-                                child: Text("Cancel"),
+                                child: Text(S.of(context).cancel),
                               ),
                               TextButton(
                                 onPressed: () {
                                   // تنفيذ عملية الحذف
-                                  Provider.of<EventProvider>(context, listen: false).deleteEvent(widget.eventIndex); // استخدم المتغير المناسب eventIndex حسب صفحتك
-                                  Navigator.of(context).pop(); // إغلاق الـ Dialog
-                                  Navigator.of(context).pop(); // العودة إلى صفحة MyEventsPage بعد الحذف
+                                  Provider.of<EventProvider>(context,
+                                          listen: false)
+                                      .deleteEvent(widget
+                                          .eventIndex); // استخدم المتغير المناسب eventIndex حسب صفحتك
+                                  Navigator.of(context)
+                                      .pop(); // إغلاق الـ Dialog
+                                  Navigator.of(context)
+                                      .pop(); // العودة إلى صفحة MyEventsPage بعد الحذف
                                 },
-                                child: Text("Delete"),
+                                child: Text(S.of(context).delete),
                               ),
                             ],
                           );
@@ -331,18 +378,17 @@ class _EventViewState extends State<EventView> {
                       backgroundColor: Colors.red.shade900,
                       padding: EdgeInsets.symmetric(vertical: 15),
                     ),
-                    child: Text('Delete', style: TextStyle(fontSize: 18,color: Colors.white),),
+                    child: Text(
+                      S.of(context).delete,
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
                   ),
                 ),
               ],
             ),
           ],
         ),
-
-        ),
-      );
-
+      ),
+    );
   }
 }
-
-

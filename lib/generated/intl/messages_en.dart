@@ -24,20 +24,20 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Color": MessageLookupByLibrary.simpleMessage("Color"),
         "Date": MessageLookupByLibrary.simpleMessage("Date"),
-        "Days": MessageLookupByLibrary.simpleMessage("Days"),
+        "Days": MessageLookupByLibrary.simpleMessage("Day"),
         "Edit": MessageLookupByLibrary.simpleMessage("Edit"),
-        "Hours": MessageLookupByLibrary.simpleMessage("Hours"),
+        "Hours": MessageLookupByLibrary.simpleMessage("Hour"),
         "Icon": MessageLookupByLibrary.simpleMessage("Icon"),
-        "Minutes": MessageLookupByLibrary.simpleMessage("Minutes"),
-        "Seconds": MessageLookupByLibrary.simpleMessage("Seconds"),
+        "Minutes": MessageLookupByLibrary.simpleMessage("Minute"),
+        "Seconds": MessageLookupByLibrary.simpleMessage("Second"),
         "Time": MessageLookupByLibrary.simpleMessage("Time"),
         "add_event": MessageLookupByLibrary.simpleMessage("Add Event"),
         "app_name": MessageLookupByLibrary.simpleMessage("Event Countdown"),
         "ar_language_label": MessageLookupByLibrary.simpleMessage("Ar"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
-        "choose_color": MessageLookupByLibrary.simpleMessage("Choose Color"),
-        "choose_icon": MessageLookupByLibrary.simpleMessage("Choose Icon"),
-        "date_picker": MessageLookupByLibrary.simpleMessage("Set Date"),
+        "choose_color": MessageLookupByLibrary.simpleMessage("Choose Color >"),
+        "choose_icon": MessageLookupByLibrary.simpleMessage("Choose Icon >"),
+        "date_picker": MessageLookupByLibrary.simpleMessage("Set Date >"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "delete_event_confirmation": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to delete this event?"),
@@ -46,23 +46,24 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Edit Event Details"),
         "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "en_language_label": MessageLookupByLibrary.simpleMessage("En"),
+        "event_added_snackbar":
+            MessageLookupByLibrary.simpleMessage("Event Added Successfully!"),
         "event_color_initial_value":
             MessageLookupByLibrary.simpleMessage("No Color Selected"),
         "event_date_initial_value":
             MessageLookupByLibrary.simpleMessage("No Date Selected"),
         "event_deleted_snackbar":
-            MessageLookupByLibrary.simpleMessage("Event deleted successfully!"),
+            MessageLookupByLibrary.simpleMessage("Event Deleted Successfully!"),
         "event_details": MessageLookupByLibrary.simpleMessage("Event Details"),
-        "event_edited_snackbar": MessageLookupByLibrary.simpleMessage(
-            "\'Event updated successfully!\'"),
+        "event_edited_snackbar":
+            MessageLookupByLibrary.simpleMessage("Event Updated Successfully!"),
         "event_hint_text":
-            MessageLookupByLibrary.simpleMessage("What is the event about?"),
+            MessageLookupByLibrary.simpleMessage("Enter your Event"),
         "event_icon_initial_value":
             MessageLookupByLibrary.simpleMessage("No Icon Selected"),
         "event_time_initial_value":
             MessageLookupByLibrary.simpleMessage("No Time Selected"),
-        "event_title":
-            MessageLookupByLibrary.simpleMessage("What is the Event Title?"),
+        "event_title": MessageLookupByLibrary.simpleMessage("Event Title"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "menu_button": MessageLookupByLibrary.simpleMessage("Menu"),
         "night_mode": MessageLookupByLibrary.simpleMessage("Night Mode"),
@@ -73,6 +74,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "profile_picture":
             MessageLookupByLibrary.simpleMessage("Profile Picture"),
         "save_button": MessageLookupByLibrary.simpleMessage("Save"),
-        "time_picker": MessageLookupByLibrary.simpleMessage("Set Time")
+        "time_picker": MessageLookupByLibrary.simpleMessage("Set Time >")
       };
 }

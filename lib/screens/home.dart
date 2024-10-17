@@ -43,24 +43,33 @@ class HomeScreen extends StatelessWidget {
         itemCount: eventProvider.events.length,
         itemBuilder: (context, index) {
           final event = eventProvider.events[index];
-          return ListTile(
-            leading: Image.asset(event.icon,
-                width: 30, height: 30), // Use Image.asset for icon
-            title: Text(event.title),
-            subtitle: Text(
-                '${event.date} at ${event.time.hour}:${event.time.minute}'),
-            tileColor: event.color,
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) =>
-                      EventView(event: event, eventIndex: index),
-                ),
-              );
-            },
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+            child: ListTile(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              leading: Image.asset(event.icon,
+                  width: 40, height: 40), // Use Image.asset for icon
+              title: Text(event.title,
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              subtitle: Text(
+                '${event.date.day}/${event.date.month}/${event.date.year} at ${event.time.hour}:${event.time.minute}',
+                style: TextStyle(fontSize: 16, color: Colors.black),
+              ),
+              tileColor: event.color,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        EventView(event: event, eventIndex: index),
+                  ),
+                );
+              },
 
-            // You can add more details here
+              // You can add more details here
+            ),
           );
         },
       ),

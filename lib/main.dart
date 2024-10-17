@@ -77,6 +77,14 @@ class _MyAppState extends State<MyApp> {
               surface: const Color(0xffBFBFDB),
               primary: Color(0xff1A1A4B),
             ),
+
+            appBarTheme: const AppBarTheme(
+              centerTitle: true,
+              elevation: 0,
+              backgroundColor: Colors.transparent,
+            ),
+           
+           
             useMaterial3: true,
           ),
           highContrastTheme: ThemeData.light(),
