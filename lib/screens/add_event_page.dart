@@ -47,179 +47,178 @@ class _AddEventPageState extends State<AddEventPage> {
     ),
     body: Padding(
       padding: const EdgeInsets.all(16.0),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 20),
-            Text('What is the event about?', style: TextStyle(fontSize: 16)),
-            TextField(
-              controller: eventData.titleController,
-              decoration: InputDecoration(
-                hintText: 'What is the Event Title?',
-                hintStyle: TextStyle(color: Colors.grey.withOpacity(0.5)),
-                border: OutlineInputBorder(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 20),
+          Text('What is the event about?', style: TextStyle(fontSize: 16)),
+          TextField(
+            controller: eventData.titleController,
+            decoration: InputDecoration(
+              hintText: 'What is the Event Title?',
+              hintStyle: TextStyle(color: Colors.grey.withOpacity(0.5)),
+              border: OutlineInputBorder(),
+            ),
+          ),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Date'),
+              Text(
+                eventData.selectedDate != null ? '${eventData.selectedDate}'.split(' ')[0] : 'No Date Selected',
               ),
-            ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Date'),
-                Text(
-                  eventData.selectedDate != null ? '${eventData.selectedDate}'.split(' ')[0] : 'No Date Selected',
-                ),
-                ElevatedButton(
-                  onPressed: () async {
-                    final pickedDate = await showDatePicker(
-                      context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime(2000),
-                      lastDate: DateTime(2101),
-                    );
-                    if (pickedDate != null) {
-                      setState(() {
-                        eventData.selectedDate = pickedDate;
-                      });
-                    }
-                  },
-                  child: Text('Set Date'),
-                ),
-              ],
-            ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Time'),
-                Text(
-                  eventData.selectedTime != null ? eventData.selectedTime!.format(context) : 'No Time Selected',
-                ),
-                ElevatedButton(
-                  onPressed: () async {
-                    final pickedTime = await showTimePicker(
-                      context: context,
-                      initialTime: TimeOfDay.now(),
-                    );
-                    if (pickedTime != null) {
-                      setState(() {
-                        eventData.selectedTime = pickedTime;
-                      });
-                    }
-                  },
-                  child: Text('Set Time'),
-                ),
-              ],
-            ),
-        
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Icon'),
-                eventData.selectedIcon != null
-                    ? Image.asset(eventData.selectedIcon, width: 30, height: 30)
-                    : Text('No Icon Selected'),
-                ElevatedButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          title: Text('Choose Icon'),
-                          content: SingleChildScrollView(
-                            child: Wrap(
-                              spacing: 10,
-                              runSpacing: 10,
-                              children: eventData.availableImageIcons.map((imagePath) {
-                                return GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      eventData.selectedIcon = imagePath;
-                                    });
-                                    Navigator.pop(context);
-                                  },
-                                  child: Image.asset(
-                                    imagePath,
-                                    width: 30,
-                                    height: 30,
-                                  ),
-                                );
-                              }).toList(),
-                            ),
+              ElevatedButton(
+                onPressed: () async {
+                  final pickedDate = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(2000),
+                    lastDate: DateTime(2101),
+                  );
+                  if (pickedDate != null) {
+                    setState(() {
+                      eventData.selectedDate = pickedDate;
+                    });
+                  }
+                },
+                child: Text('Set Date'),
+              ),
+            ],
+          ),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Time'),
+              Text(
+                eventData.selectedTime != null ? eventData.selectedTime!.format(context) : 'No Time Selected',
+              ),
+              ElevatedButton(
+                onPressed: () async {
+                  final pickedTime = await showTimePicker(
+                    context: context,
+                    initialTime: TimeOfDay.now(),
+                  );
+                  if (pickedTime != null) {
+                    setState(() {
+                      eventData.selectedTime = pickedTime;
+                    });
+                  }
+                },
+                child: Text('Set Time'),
+              ),
+            ],
+          ),
+
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Icon'),
+              eventData.selectedIcon != null
+                  ? Image.asset(eventData.selectedIcon, width: 30, height: 30)
+                  : Text('No Icon Selected'),
+              ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text('Choose Icon'),
+                        content: SingleChildScrollView(
+                          child: Wrap(
+                            spacing: 10,
+                            runSpacing: 10,
+                            children: eventData.availableImageIcons.map((imagePath) {
+                              return GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    eventData.selectedIcon = imagePath;
+                                  });
+                                  Navigator.pop(context);
+                                },
+                                child: Image.asset(
+                                  imagePath,
+                                  width: 30,
+                                  height: 30,
+                                ),
+                              );
+                            }).toList(),
                           ),
-                        );
-                      },
-                    );
-                  },
-                  child: Text('Choose Icon'),
-                ),
-              ],
-            ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Color'),
-                eventData.selectedColor != null
-                    ? Container(width: 30, height: 30, color: eventData.selectedColor)
-                    : Text('No Color Selected'),
-                ElevatedButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          title: Text('Choose Color'),
-                          content: SingleChildScrollView(
-                            child: Wrap(
-                              spacing: 10,
-                              runSpacing: 10,
-                              children: eventData.availableColors.map((color) {
-                                return GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      eventData.selectedColor = color;
-                                    });
-                                    Navigator.pop(context);
-                                  },
-                                  child: Container(
-                                    width: 30,
-                                    height: 30,
-                                    color: color,
-                                    margin: EdgeInsets.all(4.0),
-                                    child: eventData.selectedColor == color ? Icon(Icons.check, color: Colors.white) : null,
-                                  ),
-                                );
-                              }).toList(),
-                            ),
+                        ),
+                      );
+                    },
+                  );
+                },
+                child: Text('Choose Icon'),
+              ),
+            ],
+          ),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Color'),
+              eventData.selectedColor != null
+                  ? Container(width: 30, height: 30, color: eventData.selectedColor)
+                  : Text('No Color Selected'),
+              ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text('Choose Color'),
+                        content: SingleChildScrollView(
+                          child: Wrap(
+                            spacing: 10,
+                            runSpacing: 10,
+                            children: eventData.availableColors.map((color) {
+                              return GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    eventData.selectedColor = color;
+                                  });
+                                  Navigator.pop(context);
+                                },
+                                child: Container(
+                                  width: 30,
+                                  height: 30,
+                                  color: color,
+                                  margin: EdgeInsets.all(4.0),
+                                  child: eventData.selectedColor == color ? Icon(Icons.check, color: Colors.white) : null,
+                                ),
+                              );
+                            }).toList(),
                           ),
-                        );
-                      },
-                    );
-                  },
-                  child: Text('Choose Color'),
-                ),
-              ],
-            ),
-            SizedBox(height: 20),
-            Text('Notes', style: TextStyle(fontSize: 16)),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Describe your Event',
-                hintStyle: TextStyle(color: Colors.grey.withOpacity(0.5)),
-                border: OutlineInputBorder(),
+                        ),
+                      );
+                    },
+                  );
+                },
+                child: Text('Choose Color'),
               ),
+            ],
+          ),
+          SizedBox(height: 20),
+          Text('Notes', style: TextStyle(fontSize: 16)),
+          TextField(
+            controller: eventData.notesController,
+            decoration: InputDecoration(
+              hintText: 'Describe your Event',
+              hintStyle: TextStyle(color: Colors.grey.withOpacity(0.5)),
+              border: OutlineInputBorder(),
             ),
-            Spacer(),
-            Center(
-              child: ElevatedButton(
-                onPressed: _saveEvent,
-                child: Text('Save'),
-              ),
+          ),
+          Spacer(),
+          Center(
+            child: ElevatedButton(
+              onPressed: _saveEvent,
+              child: Text('Save'),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     ),
   );

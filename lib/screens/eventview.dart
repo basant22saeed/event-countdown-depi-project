@@ -1,6 +1,7 @@
 import 'package:event_countdown/screens/event_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'edit_event_page.dart';
 import 'event.dart';
 import 'dart:async';
 
@@ -276,13 +277,13 @@ class _EventViewState extends State<EventView> {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                      // الانتقال إلى صفحة EditEventPage
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => EditEventPage(event: widget.event, eventIndex: widget.eventIndex), // استخدم المتغير المناسب eventIndex حسب صفحتك
-                      //   ),
-                      // );
+                       // الانتقال إلى صفحة EditEventPage
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EditEventPage(event: widget.event, eventIndex: widget.eventIndex), // استخدم المتغير المناسب eventIndex حسب صفحتك
+                        ),
+                       );
                     },
                     style: ElevatedButton.styleFrom(
                      backgroundColor: Colors.blue, // لون الزر
