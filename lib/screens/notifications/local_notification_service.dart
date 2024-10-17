@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:event_countdown/screens/event.dart';
+import 'package:event_countdown/model/event.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/timezone.dart' as tz;

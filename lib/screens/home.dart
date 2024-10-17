@@ -1,9 +1,9 @@
 //! الصفحة الرئيسية -> بسنت سعيد
 
 import 'package:event_countdown/generated/l10n.dart';
-import 'package:event_countdown/screens/event_data_model.dart';
-import 'package:event_countdown/screens/event_provider.dart';
-import 'package:event_countdown/screens/eventview.dart';
+import 'package:event_countdown/data/event_data_model.dart';
+import 'package:event_countdown/data/event_provider.dart';
+import 'package:event_countdown/screens/event_view.dart';
 import 'package:flutter/material.dart';
 import 'package:event_countdown/screens/drawer.dart';
 import 'package:provider/provider.dart';

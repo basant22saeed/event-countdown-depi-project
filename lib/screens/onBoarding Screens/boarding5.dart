@@ -5,7 +5,7 @@ class Boarding5 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(          
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Center(

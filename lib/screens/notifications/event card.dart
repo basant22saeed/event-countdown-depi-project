@@ -1,7 +1,7 @@
 import 'package:event_countdown/screens/notifications/local_notification_service.dart';
 import 'package:flutter/material.dart';
 
-import '../event.dart';
+import '../../model/event.dart';
 
 class EventCard extends StatelessWidget{
   final Event event;

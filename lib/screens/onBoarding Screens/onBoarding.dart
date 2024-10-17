@@ -35,14 +35,14 @@ class _OnBoarding1State extends State<OnBoarding1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      // resizeToAvoidBottomInset: false,
       body: Stack(children: [
         //! الصفحات
         PageView(
           controller: _controller,
           onPageChanged: (index) {
             setState(() {
-              onLastPage = (index == 4);
+              onLastPage = (index == 3);
             });
           },
           children: [
@@ -78,7 +78,7 @@ class _OnBoarding1State extends State<OnBoarding1> {
             children: [
               SmoothPageIndicator(
                 controller: _controller,
-                count: 5,
+                count: 4,
                 effect: WormEffect(
                   dotColor: Color.fromARGB(255, 119, 119, 213),
                   activeDotColor: Color(0xff0d1345),

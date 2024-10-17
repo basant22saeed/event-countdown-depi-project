@@ -3,9 +3,9 @@
 import 'package:event_countdown/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'event.dart';
-import 'event_data_model.dart';
-import 'event_provider.dart';
+import '../model/event.dart';
+import '../data/event_data_model.dart';
+import '../data/event_provider.dart';
 
 class EditEventPage extends StatefulWidget {
   final Event event;

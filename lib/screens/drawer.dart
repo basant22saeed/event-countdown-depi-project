@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:event_countdown/screens/notifications/notification.dart';
-import 'package:event_countdown/screens/provider_drawer.dart';
+import 'package:event_countdown/data/provider_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';

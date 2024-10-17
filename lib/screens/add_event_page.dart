@@ -1,10 +1,10 @@
 import 'package:event_countdown/generated/l10n.dart';
-import 'package:event_countdown/screens/event_data_model.dart';
-import 'package:event_countdown/screens/event_provider.dart';
+import 'package:event_countdown/data/event_data_model.dart';
+import 'package:event_countdown/data/event_provider.dart';
 import 'package:event_countdown/screens/notifications/local_notification_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'event.dart';
+import '../model/event.dart';
 
 class AddEventPage extends StatefulWidget {
   @override

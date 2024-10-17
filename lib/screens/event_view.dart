@@ -1,8 +1,8 @@
-import 'package:event_countdown/screens/event_provider.dart';
+import 'package:event_countdown/data/event_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'edit_event_page.dart';
-import 'event.dart';
+import '../model/event.dart';
 import 'dart:async';
 
 class EventView extends StatefulWidget {

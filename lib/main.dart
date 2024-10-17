@@ -1,8 +1,8 @@
 import 'package:event_countdown/generated/l10n.dart';
-import 'package:event_countdown/screens/event_provider.dart';
+import 'package:event_countdown/data/event_provider.dart';
 import 'package:event_countdown/screens/notifications/local_notification_service.dart';
 import 'package:event_countdown/screens/onBoarding%20Screens/onBoarding.dart';
-import 'package:event_countdown/screens/provider_drawer.dart';
+import 'package:event_countdown/data/provider_drawer.dart';
 import 'package:event_countdown/screens/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
       builder: (context, child) {
         final themeProvider = Provider.of<ThemeProvider>(context);
         return MaterialApp(
-          locale: Locale('ar'),
+          // locale: Locale('ar'),
           //!    تحديد لغة التطبيق
           localizationsDelegates: [
             S.delegate,
