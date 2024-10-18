@@ -24,45 +24,53 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Color": MessageLookupByLibrary.simpleMessage("اللون"),
         "Date": MessageLookupByLibrary.simpleMessage("التاريخ"),
-        "Days": MessageLookupByLibrary.simpleMessage("أيام"),
+        "Days": MessageLookupByLibrary.simpleMessage("يوم"),
         "Edit": MessageLookupByLibrary.simpleMessage("تعديل"),
-        "Hours": MessageLookupByLibrary.simpleMessage("ساعات"),
+        "Hours": MessageLookupByLibrary.simpleMessage("ساعة"),
         "Icon": MessageLookupByLibrary.simpleMessage("الأيقونة"),
-        "Minutes": MessageLookupByLibrary.simpleMessage("دقائق"),
-        "Seconds": MessageLookupByLibrary.simpleMessage("ثواني"),
+        "Minutes": MessageLookupByLibrary.simpleMessage("دقيقة"),
+        "Seconds": MessageLookupByLibrary.simpleMessage("ثانية"),
         "Time": MessageLookupByLibrary.simpleMessage("الوقت"),
         "add_event": MessageLookupByLibrary.simpleMessage("إضافة حدث"),
-        "app_name": MessageLookupByLibrary.simpleMessage("عداد الأحداث"),
+        "app_name": MessageLookupByLibrary.simpleMessage("إيفنتاتي"),
         "ar_language_label": MessageLookupByLibrary.simpleMessage("ع"),
+        "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+        "camera": MessageLookupByLibrary.simpleMessage("الكاميرا"),
         "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
-        "choose_color": MessageLookupByLibrary.simpleMessage("اختر لونًا"),
-        "choose_icon": MessageLookupByLibrary.simpleMessage("اختر أيقونة"),
-        "date_picker": MessageLookupByLibrary.simpleMessage("تحديد التاريخ"),
+        "choose_color": MessageLookupByLibrary.simpleMessage("اختر لونًا >"),
+        "choose_icon": MessageLookupByLibrary.simpleMessage("اختر أيقونة >"),
+        "date_picker": MessageLookupByLibrary.simpleMessage("تحديد التاريخ >"),
         "delete": MessageLookupByLibrary.simpleMessage("حذف"),
         "delete_event_confirmation": MessageLookupByLibrary.simpleMessage(
             "هل أنت متأكد أنك تريد حذف هذا الحدث؟"),
         "edit_event": MessageLookupByLibrary.simpleMessage("تعديل الحدث"),
         "edit_event_details":
             MessageLookupByLibrary.simpleMessage("تعديل تفاصيل الحدث"),
-        "edit_profile":
-            MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
-        "en_language_label": MessageLookupByLibrary.simpleMessage("إ"),
+        "edit_username":
+            MessageLookupByLibrary.simpleMessage("تعديل اسم المستخدم"),
+        "en_language_label": MessageLookupByLibrary.simpleMessage("En"),
+        "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+        "enter_username":
+            MessageLookupByLibrary.simpleMessage("أدخل اسم المستخدم"),
+        "event_added_snackbar":
+            MessageLookupByLibrary.simpleMessage("تم إضافة الحدث بنجاح!"),
         "event_color_initial_value":
-            MessageLookupByLibrary.simpleMessage("لم يتم تحديد لون"),
+            MessageLookupByLibrary.simpleMessage("لم يتم اختيار لون"),
         "event_date_initial_value":
-            MessageLookupByLibrary.simpleMessage("لم يتم تحديد تاريخ"),
+            MessageLookupByLibrary.simpleMessage("لم يتم اختيار تاريخ"),
         "event_deleted_snackbar":
             MessageLookupByLibrary.simpleMessage("تم حذف الحدث بنجاح!"),
         "event_details": MessageLookupByLibrary.simpleMessage("تفاصيل الحدث"),
         "event_edited_snackbar":
             MessageLookupByLibrary.simpleMessage("تم تحديث الحدث بنجاح!"),
-        "event_hint_text": MessageLookupByLibrary.simpleMessage("ما هو الحدث؟"),
+        "event_hint_text":
+            MessageLookupByLibrary.simpleMessage("أدخل الحدث الخاص بك"),
         "event_icon_initial_value":
-            MessageLookupByLibrary.simpleMessage("لم يتم تحديد أيقونة"),
+            MessageLookupByLibrary.simpleMessage("لم يتم اختيار أيقونة"),
         "event_time_initial_value":
-            MessageLookupByLibrary.simpleMessage("لم يتم تحديد وقت"),
-        "event_title":
-            MessageLookupByLibrary.simpleMessage("ما هو عنوان الحدث؟"),
+            MessageLookupByLibrary.simpleMessage("لم يتم اختيار وقت"),
+        "event_title": MessageLookupByLibrary.simpleMessage("عنوان الحدث"),
+        "gallery": MessageLookupByLibrary.simpleMessage("المعرض"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "menu_button": MessageLookupByLibrary.simpleMessage("القائمة"),
         "night_mode": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
@@ -72,6 +80,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "profile_picture":
             MessageLookupByLibrary.simpleMessage("صورة الملف الشخصي"),
         "save_button": MessageLookupByLibrary.simpleMessage("حفظ"),
-        "time_picker": MessageLookupByLibrary.simpleMessage("تحديد الوقت")
+        "select_language": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
+        "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+        "time_picker": MessageLookupByLibrary.simpleMessage("تحديد الوقت >"),
+        "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم")
       };
 }

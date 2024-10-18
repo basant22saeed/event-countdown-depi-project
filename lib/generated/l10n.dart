@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Event Countdown`
+  /// `Eventaty`
   String get app_name {
     return Intl.message(
-      'Event Countdown',
+      'Eventaty',
       name: 'app_name',
       desc: '',
       args: [],
@@ -80,11 +80,61 @@ class S {
     );
   }
 
-  /// `Edit Profile`
-  String get edit_profile {
+  /// `Camera`
+  String get camera {
     return Intl.message(
-      'Edit Profile',
-      name: 'edit_profile',
+      'Camera',
+      name: 'camera',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gallery`
+  String get gallery {
+    return Intl.message(
+      'Gallery',
+      name: 'gallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Username`
+  String get username {
+    return Intl.message(
+      'Username',
+      name: 'username',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Username`
+  String get edit_username {
+    return Intl.message(
+      'Edit Username',
+      name: 'edit_username',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Username`
+  String get enter_username {
+    return Intl.message(
+      'Enter Username',
+      name: 'enter_username',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
       desc: '',
       args: [],
     );
@@ -110,11 +160,41 @@ class S {
     );
   }
 
+  /// `Select Language`
+  String get select_language {
+    return Intl.message(
+      'Select Language',
+      name: 'select_language',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Notifications`
   String get notifications {
     return Intl.message(
       'Notifications',
       name: 'notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message(
+      'English',
+      name: 'english',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message(
+      'Arabic',
+      name: 'arabic',
       desc: '',
       args: [],
     );

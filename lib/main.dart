@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
       builder: (context, child) {
         final themeProvider = Provider.of<ThemeProvider>(context);
         return MaterialApp(
-          // locale: Locale('ar'),
+          locale: Locale('ar'),
           //!    تحديد لغة التطبيق
           localizationsDelegates: [
             S.delegate,

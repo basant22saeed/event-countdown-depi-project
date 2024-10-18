@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:event_countdown/generated/l10n.dart';
 import 'package:event_countdown/screens/notifications/notification.dart';
 import 'package:event_countdown/data/provider_drawer.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +14,8 @@ class AppDrawer extends StatefulWidget {
 
 class _AppDrawerState extends State<AppDrawer> {
   bool _isNightMode = false;
-  String _selectedLanguage = "En";
-  String _username = "UserName";
+  String _selectedLanguage = 'En';
+  String _username = 'UserName';
   File? _profileImage;
 
   @override
@@ -52,7 +53,7 @@ class _AppDrawerState extends State<AppDrawer> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(
-          "Upload image",
+          S.of(context).profile_picture,
           style: TextStyle(fontSize: 24),
         ),
         actions: [
@@ -71,8 +72,9 @@ class _AppDrawerState extends State<AppDrawer> {
                           size: 50,
                         ),
                         Text(
-                          'Camera',
-                          style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                          S.of(context).camera,
+                          style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary),
                         ),
                       ],
                     ),
@@ -93,8 +95,9 @@ class _AppDrawerState extends State<AppDrawer> {
                           size: 50,
                         ),
                         Text(
-                          'Gallery',
-                          style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                          S.of(context).gallery,
+                          style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary),
                         ),
                       ],
                     ),
@@ -104,9 +107,6 @@ class _AppDrawerState extends State<AppDrawer> {
               ),
             ],
           )
-
-
-
         ],
       ),
     );
@@ -142,7 +142,7 @@ class _AppDrawerState extends State<AppDrawer> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Eventaty',
+                  S.of(context).app_name,
                   style: TextStyle(
                       color: isDarkMode ? Colors.white : Color(0xFF0D1445),
                       fontSize: 30),
@@ -165,7 +165,7 @@ class _AppDrawerState extends State<AppDrawer> {
                             : null,
                         child: _profileImage == null
                             ? Icon(Icons.person,
-                            size: 50, color: Colors.black45)
+                                size: 50, color: Colors.black45)
                             : null,
                       ),
                       Positioned(
@@ -189,21 +189,30 @@ class _AppDrawerState extends State<AppDrawer> {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.person, color: isDarkMode ? Colors.white : Color(0xFF0D1445)),
+                          Icon(Icons.person,
+                              color: isDarkMode
+                                  ? Colors.white
+                                  : Color(0xFF0D1445)),
                           SizedBox(width: 12.0),
                           // check username that entered by the user and replaced it
                           Text(
-                            _username != "UserName" ? _username : "",
+                            _username != S.of(context).username
+                                ? _username
+                                : "",
                             style: TextStyle(
-                                color: isDarkMode ? Colors.white : Color(0xFF0D1445),
+                                color: isDarkMode
+                                    ? Colors.white
+                                    : Color(0xFF0D1445),
                                 fontSize: 18),
                           ),
                           // the default "UserName" of the drawer
-                          if (_username == "UserName")
+                          if (_username == S.of(context).username)
                             Text(
-                              "Username",
+                              S.of(context).username,
                               style: TextStyle(
-                                color: isDarkMode ? Colors.white : Color(0xFF0D1445),
+                                color: isDarkMode
+                                    ? Colors.white
+                                    : Color(0xFF0D1445),
                                 fontSize: 18,
                               ),
                             ),
@@ -212,7 +221,10 @@ class _AppDrawerState extends State<AppDrawer> {
                       Padding(
                         padding: const EdgeInsets.only(right: 12),
                         child: IconButton(
-                          icon: Icon(Icons.edit, color: isDarkMode ? Colors.white : Color(0xFF0D1445)),
+                          icon: Icon(Icons.edit,
+                              color: isDarkMode
+                                  ? Colors.white
+                                  : Color(0xFF0D1445)),
                           onPressed: _editUsername,
                         ),
                       ),
@@ -223,7 +235,7 @@ class _AppDrawerState extends State<AppDrawer> {
             ),
             ListTile(
               title: Text(
-                'Settings',
+                S.of(context).settings,
                 style: TextStyle(
                     color: isDarkMode ? Colors.white : Color(0xFF0D1445),
                     fontSize: 20),
@@ -234,7 +246,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 isDarkMode ? Icons.dark_mode : Icons.light_mode,
                 color: isDarkMode ? Colors.white : Color(0xff1B1B1B),
               ),
-              title: Text('Night mode',
+              title: Text(S.of(context).night_mode,
                   style: TextStyle(
                       color: isDarkMode ? Colors.white : Color(0xFF0D1445))),
               value: _isNightMode,
@@ -245,14 +257,14 @@ class _AppDrawerState extends State<AppDrawer> {
                 });
                 _saveSettings(); // Save night mode state
                 final provider =
-                Provider.of<ThemeProvider>(context, listen: false);
+                    Provider.of<ThemeProvider>(context, listen: false);
                 provider.toggleTheme(value);
               },
             ),
             ListTile(
               leading: Icon(Icons.language,
                   color: isDarkMode ? Colors.white : Color(0xFF0D1445)),
-              title: Text('Language',
+              title: Text(S.of(context).language,
                   style: TextStyle(
                       color: isDarkMode ? Colors.white : Color(0xFF0D1445))),
               trailing: Padding(
@@ -273,7 +285,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Notifications',
+                    S.of(context).notifications,
                     style: TextStyle(
                         color: isDarkMode ? Colors.white : Color(0xFF0D1445)),
                   ),
@@ -289,8 +301,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          NotificationHistory(),
+                      builder: (context) => NotificationHistory(),
                     ));
               },
             ),
@@ -299,6 +310,7 @@ class _AppDrawerState extends State<AppDrawer> {
       ),
     );
   }
+
   void _editUsername() {
     showDialog(
       context: context,
@@ -307,10 +319,10 @@ class _AppDrawerState extends State<AppDrawer> {
         TextEditingController _usernameController = TextEditingController();
 
         return AlertDialog(
-          title: Text('Edit Username'),
+          title: Text(S.of(context).edit_username),
           content: TextField(
             controller: _usernameController,
-            decoration: InputDecoration(hintText: 'Enter new username'),
+            decoration: InputDecoration(hintText: S.of(context).enter_username),
           ),
           actions: [
             TextButton(
@@ -324,7 +336,9 @@ class _AppDrawerState extends State<AppDrawer> {
                 });
                 Navigator.of(context).pop();
               },
-              child: Text('Save'),
+              child: Text(
+                S.of(context).save_button,
+              ),
             ),
           ],
         );
@@ -337,25 +351,25 @@ class _AppDrawerState extends State<AppDrawer> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Select Language'),
+          title: Text(S.of(context).select_language),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                title: Text('English'),
+                title: Text(S.of(context).english),
                 onTap: () {
                   setState(() {
-                    _selectedLanguage = 'En';
+                    _selectedLanguage = S.of(context).en_language_label;
                     _saveSettings();
                   });
                   Navigator.of(context).pop();
                 },
               ),
               ListTile(
-                title: Text('Arabic'),
+                title: Text(S.of(context).arabic),
                 onTap: () {
                   setState(() {
-                    _selectedLanguage = 'Ar';
+                    _selectedLanguage = S.of(context).ar_language_label;
                     _saveSettings();
                   });
                   Navigator.of(context).pop();

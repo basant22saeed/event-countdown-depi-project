@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
               title: Text(event.title,
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               subtitle: Text(
-                '${event.date.day}/${event.date.month}/${event.date.year} at ${event.time.hour}:${event.time.minute}',
+                '${event.date.day}/${event.date.month}/${event.date.year} - ${event.time.hour}:${event.time.minute}',
                 style: TextStyle(fontSize: 16, color: Colors.black),
               ),
               tileColor: event.color,

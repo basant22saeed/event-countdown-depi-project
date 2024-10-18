@@ -32,8 +32,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "Seconds": MessageLookupByLibrary.simpleMessage("Second"),
         "Time": MessageLookupByLibrary.simpleMessage("Time"),
         "add_event": MessageLookupByLibrary.simpleMessage("Add Event"),
-        "app_name": MessageLookupByLibrary.simpleMessage("Event Countdown"),
+        "app_name": MessageLookupByLibrary.simpleMessage("Eventaty"),
         "ar_language_label": MessageLookupByLibrary.simpleMessage("Ar"),
+        "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+        "camera": MessageLookupByLibrary.simpleMessage("Camera"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "choose_color": MessageLookupByLibrary.simpleMessage("Choose Color >"),
         "choose_icon": MessageLookupByLibrary.simpleMessage("Choose Icon >"),
@@ -44,8 +46,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_event": MessageLookupByLibrary.simpleMessage("Edit Event"),
         "edit_event_details":
             MessageLookupByLibrary.simpleMessage("Edit Event Details"),
-        "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
+        "edit_username": MessageLookupByLibrary.simpleMessage("Edit Username"),
         "en_language_label": MessageLookupByLibrary.simpleMessage("En"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
+        "enter_username":
+            MessageLookupByLibrary.simpleMessage("Enter Username"),
         "event_added_snackbar":
             MessageLookupByLibrary.simpleMessage("Event Added Successfully!"),
         "event_color_initial_value":
@@ -64,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "event_time_initial_value":
             MessageLookupByLibrary.simpleMessage("No Time Selected"),
         "event_title": MessageLookupByLibrary.simpleMessage("Event Title"),
+        "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "menu_button": MessageLookupByLibrary.simpleMessage("Menu"),
         "night_mode": MessageLookupByLibrary.simpleMessage("Night Mode"),
@@ -74,6 +80,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "profile_picture":
             MessageLookupByLibrary.simpleMessage("Profile Picture"),
         "save_button": MessageLookupByLibrary.simpleMessage("Save"),
-        "time_picker": MessageLookupByLibrary.simpleMessage("Set Time >")
+        "select_language":
+            MessageLookupByLibrary.simpleMessage("Select Language"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "time_picker": MessageLookupByLibrary.simpleMessage("Set Time >"),
+        "username": MessageLookupByLibrary.simpleMessage("Username")
       };
 }

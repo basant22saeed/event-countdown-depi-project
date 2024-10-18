@@ -1,6 +1,7 @@
 //! Edit event page ----> Nourhan
 
 import 'package:event_countdown/generated/l10n.dart';
+import 'package:event_countdown/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../model/event.dart';
@@ -60,41 +61,45 @@ class _EditEventPageState extends State<EditEventPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Text(S.of(context).edit_event),
-        centerTitle: true,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: 
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 20),
-            Text(S.of(context).edit_event_details,
-                style: TextStyle(fontSize: 16)),
-            _buildTextField(
-                S.of(context).event_title, eventData.titleController),
-            SizedBox(height: 20),
-            _buildDatePicker(),
-            SizedBox(height: 20),
-            _buildTimePicker(),
-            SizedBox(height: 20),
-            _buildIconPicker(),
-            SizedBox(height: 20),
-            _buildColorPicker(),
-            SizedBox(height: 20),
-            _buildNotesField(),
-            Spacer(),
-            Center(
-              child: ElevatedButton(
-                onPressed: _saveEditedEvent,
-                child: Text(S.of(context).save_button),
-              ),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(S.of(context).edit_event),
+          centerTitle: true,
+        ),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0),
+            physics: BouncingScrollPhysics(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 20),
+                Text(S.of(context).edit_event_details,
+                    style: TextStyle(fontSize: 16)),
+                _buildTextField(
+                    S.of(context).event_title, eventData.titleController),
+                SizedBox(height: 20),
+                _buildDatePicker(),
+                SizedBox(height: 20),
+                _buildTimePicker(),
+                SizedBox(height: 20),
+                _buildIconPicker(),
+                SizedBox(height: 20),
+                _buildColorPicker(),
+                SizedBox(height: 20),
+                _buildNotesField(),
+                SizedBox(height: 120),
+                Center(
+                  child: Button(
+                    onPressed: _saveEditedEvent,
+                    buttonText: S.of(context).save_button,
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
