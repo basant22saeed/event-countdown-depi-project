@@ -220,7 +220,7 @@ class _EventViewState extends State<EventView> {
                                 Text(
                                   S.of(context).Days,
                                   style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 SizedBox(height: 10),
@@ -251,7 +251,7 @@ class _EventViewState extends State<EventView> {
                                 Text(
                                   S.of(context).Hours,
                                   style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 SizedBox(height: 10),
@@ -282,7 +282,7 @@ class _EventViewState extends State<EventView> {
                                 Text(
                                   S.of(context).Minutes,
                                   style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 SizedBox(height: 10),
@@ -313,7 +313,7 @@ class _EventViewState extends State<EventView> {
                                 Text(
                                   S.of(context).Seconds,
                                   style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 SizedBox(height: 10),
