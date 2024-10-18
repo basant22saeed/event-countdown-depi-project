@@ -1,34 +1,38 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:event_countdown/model/event.dart';
 import 'package:event_countdown/screens/notifications/notification.dart';
-import 'package:flutter/material.dart';
+
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
 class LocalNotificationService {
   late final Event event;
-  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
   static FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
   FlutterLocalNotificationsPlugin();
   static List<Event> notifiedEvents = [];
 
 
-
-  static Future init()async{
+  static Future init() async {
     InitializationSettings settings = InitializationSettings(
         android: AndroidInitializationSettings('@mipmap/ic_launcher'),
         iOS: DarwinInitializationSettings()
     );
+     onTap(NotificationResponse notificationResponse) {
+
+    }
 
     flutterLocalNotificationsPlugin.initialize(settings,
-      onDidReceiveNotificationResponse: onTap,
-      onDidReceiveBackgroundNotificationResponse: onTap
+        onDidReceiveNotificationResponse: onTap,
+        onDidReceiveBackgroundNotificationResponse: onTap
     );
-
   }
-  static void showScheduledNotification(Event event) async{
+
+  static void showScheduledNotification(Event event) async {
     NotificationDetails details = const NotificationDetails(
         android: AndroidNotificationDetails(
             'id 1',
@@ -48,9 +52,12 @@ class LocalNotificationService {
       event.date.day,
       event.time.hour,
       event.time.minute,
+
+
     );
+
     await flutterLocalNotificationsPlugin.zonedSchedule(
-        1,
+        0,
         event.title,
         event.notes,
         eventDateTime,
@@ -58,13 +65,18 @@ class LocalNotificationService {
         uiLocalNotificationDateInterpretation:
         UILocalNotificationDateInterpretation.absoluteTime);
     NotificationHistory.notifiedEvents.add(event);
+    await _saveNotifiedEvent(event);
+  }
+  static Future<void> _saveNotifiedEvent(Event event) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
 
+    List<String>? savedEvents = prefs.getStringList('notifiedEvents') ?? [];
+    savedEvents.add(jsonEncode(event.toMap()));
+
+    await prefs.setStringList('notifiedEvents', savedEvents);
   }
-  static onTap(NotificationResponse notificationResponse) {
-    navigatorKey.currentState?.push(MaterialPageRoute(
-      builder: (context) => NotificationHistory(),
-    ));
-  }
-  }
+
+
+}
 
 
