@@ -9,37 +9,31 @@ import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
+
 class LocalNotificationService {
   late final Event event;
 
   static FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-  FlutterLocalNotificationsPlugin();
+      FlutterLocalNotificationsPlugin();
   static List<Event> notifiedEvents = [];
+  static onTap(NotificationResponse notificationResponse) {
 
-
+  }
   static Future init() async {
     InitializationSettings settings = InitializationSettings(
         android: AndroidInitializationSettings('@mipmap/ic_launcher'),
-        iOS: DarwinInitializationSettings()
-    );
-     onTap(NotificationResponse notificationResponse) {
+        iOS: DarwinInitializationSettings());
 
-    }
 
     flutterLocalNotificationsPlugin.initialize(settings,
         onDidReceiveNotificationResponse: onTap,
-        onDidReceiveBackgroundNotificationResponse: onTap
-    );
+        onDidReceiveBackgroundNotificationResponse: onTap);
   }
 
   static void showScheduledNotification(Event event) async {
     NotificationDetails details = const NotificationDetails(
-        android: AndroidNotificationDetails(
-            'id 1',
-            'scheduled notification',
-            importance: Importance.max,
-            priority: Priority.high
-        ));
+        android: AndroidNotificationDetails('id 1', 'scheduled notification',
+            importance: Importance.max, priority: Priority.high));
     tz.initializeTimeZones();
     log(tz.local.name);
     final String currentTimeZone = await FlutterTimezone.getLocalTimezone();
@@ -52,21 +46,16 @@ class LocalNotificationService {
       event.date.day,
       event.time.hour,
       event.time.minute,
-
-
     );
 
     await flutterLocalNotificationsPlugin.zonedSchedule(
-        0,
-        event.title,
-        event.notes,
-        eventDateTime,
-        details,
+        1, event.title, event.notes, eventDateTime, details,
         uiLocalNotificationDateInterpretation:
-        UILocalNotificationDateInterpretation.absoluteTime);
+            UILocalNotificationDateInterpretation.absoluteTime);
     NotificationHistory.notifiedEvents.add(event);
     await _saveNotifiedEvent(event);
   }
+
   static Future<void> _saveNotifiedEvent(Event event) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -75,8 +64,4 @@ class LocalNotificationService {
 
     await prefs.setStringList('notifiedEvents', savedEvents);
   }
-
-
 }
-
-

@@ -1,4 +1,3 @@
-import 'package:event_countdown/screens/notifications/local_notification_service.dart';
 import 'package:flutter/material.dart';
 
 class EventDataModel {

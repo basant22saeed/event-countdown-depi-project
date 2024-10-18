@@ -2,7 +2,6 @@
 import 'package:event_countdown/screens/onBoarding%20Screens/boarding1.dart';
 import 'package:event_countdown/screens/onBoarding%20Screens/boarding2.dart';
 import 'package:event_countdown/screens/onBoarding%20Screens/boarding3.dart';
-import 'package:event_countdown/screens/onBoarding%20Screens/boarding4.dart';
 import 'package:event_countdown/screens/onBoarding%20Screens/boarding5.dart';
 import 'package:event_countdown/screens/splash.dart';
 import 'package:event_countdown/widgets/button.dart';
