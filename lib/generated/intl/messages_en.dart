@@ -48,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Edit Event Details"),
         "edit_username": MessageLookupByLibrary.simpleMessage("Edit Username"),
         "en_language_label": MessageLookupByLibrary.simpleMessage("En"),
+        "ended_event": MessageLookupByLibrary.simpleMessage("Event is ended"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
         "enter_username":
             MessageLookupByLibrary.simpleMessage("Enter Username"),

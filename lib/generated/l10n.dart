@@ -549,6 +549,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Event is ended`
+  String get ended_event {
+    return Intl.message(
+      'Event is ended',
+      name: 'ended_event',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -49,5 +49,6 @@
   "edit_event_details": "تعديل تفاصيل الحدث",
   "event_added_snackbar": "تم إضافة الحدث بنجاح!",
   "event_edited_snackbar": "تم تحديث الحدث بنجاح!",
-  "event_deleted_snackbar": "تم حذف الحدث بنجاح!"
+  "event_deleted_snackbar": "تم حذف الحدث بنجاح!",
+  "ended_event": "لقد انتهى الحدث"
 }

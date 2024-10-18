@@ -49,5 +49,6 @@
   "edit_event_details": "Edit Event Details",
   "event_added_snackbar": "Event Added Successfully!",
   "event_edited_snackbar": "Event Updated Successfully!",
-  "event_deleted_snackbar": "Event Deleted Successfully!"
+  "event_deleted_snackbar": "Event Deleted Successfully!",
+  "ended_event": "Event is ended"
 }

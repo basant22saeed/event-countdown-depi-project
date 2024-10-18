@@ -182,125 +182,138 @@ class _EventViewState extends State<EventView> {
                     255, 0, 27, 67), // اللون الأزرق الغامق للصندوق الكبير
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  // صندوق لعدد الأيام
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Colors.white, // اللون الأبيض للصندوق الداخلي
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        children: [
-                          Text(
-                            S.of(context).Days,
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
+              child: remainingTime.inDays == 0 &&
+                      remainingTime.inHours == 0 &&
+                      remainingTime.inMinutes == 0 &&
+                      remainingTime.inSeconds == 0
+                  ? Text(S.of(context).ended_event)
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        // صندوق لعدد الأيام
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color:
+                                  Colors.white, // اللون الأبيض للصندوق الداخلي
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Column(
+                              children: [
+                                Text(
+                                  S.of(context).Days,
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(height: 10),
+                                Text(
+                                  "${remainingTime.inDays}",
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.purple),
+                                ),
+                              ],
+                            ),
                           ),
-                          SizedBox(height: 10),
-                          Text(
-                            "${remainingTime.inDays}",
-                            style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.purple),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 10),
+                        ),
+                        SizedBox(width: 10),
 
-                  // صندوق لعدد الساعات
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Colors.white, // اللون الأبيض للصندوق الداخلي
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        children: [
-                          Text(
-                            S.of(context).Hours,
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
+                        // صندوق لعدد الساعات
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color:
+                                  Colors.white, // اللون الأبيض للصندوق الداخلي
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Column(
+                              children: [
+                                Text(
+                                  S.of(context).Hours,
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(height: 10),
+                                Text(
+                                  "${remainingTime.inHours % 24}",
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.purple),
+                                ),
+                              ],
+                            ),
                           ),
-                          SizedBox(height: 10),
-                          Text(
-                            "${remainingTime.inHours % 24}",
-                            style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.purple),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 10),
+                        ),
+                        SizedBox(width: 10),
 
-                  // صندوق لعدد الدقائق
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Colors.white, // اللون الأبيض للصندوق الداخلي
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        children: [
-                          Text(
-                            S.of(context).Minutes,
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
+                        // صندوق لعدد الدقائق
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color:
+                                  Colors.white, // اللون الأبيض للصندوق الداخلي
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Column(
+                              children: [
+                                Text(
+                                  S.of(context).Minutes,
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(height: 10),
+                                Text(
+                                  "${remainingTime.inMinutes % 60}",
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.purple),
+                                ),
+                              ],
+                            ),
                           ),
-                          SizedBox(height: 10),
-                          Text(
-                            "${remainingTime.inMinutes % 60}",
-                            style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.purple),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 10),
+                        ),
+                        SizedBox(width: 10),
 
-                  // صندوق لعدد الثواني
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Colors.white, // اللون الأبيض للصندوق الداخلي
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Column(
-                        children: [
-                          Text(
-                            S.of(context).Seconds,
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
+                        // صندوق لعدد الثواني
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color:
+                                  Colors.white, // اللون الأبيض للصندوق الداخلي
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Column(
+                              children: [
+                                Text(
+                                  S.of(context).Seconds,
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(height: 10),
+                                Text(
+                                  "${remainingTime.inSeconds % 60}",
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.purple),
+                                ),
+                              ],
+                            ),
                           ),
-                          SizedBox(height: 10),
-                          Text(
-                            "${remainingTime.inSeconds % 60}",
-                            style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.purple),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
             ),
             Spacer(), // هذا الفاصل لدفع الزرارين إلى أسفل الصفحة
 

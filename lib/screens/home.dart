@@ -9,6 +9,7 @@ import 'package:event_countdown/screens/drawer.dart';
 import 'package:provider/provider.dart';
 import 'add_event_page.dart';
 
+// ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
   List<EventDataModel> events = [];
