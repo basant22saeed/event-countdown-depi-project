@@ -1,4 +1,5 @@
 
+import 'package:event_countdown/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../model/event.dart';
@@ -23,7 +24,7 @@ class _NotificationHistoryState extends State<NotificationHistory> {
       appBar: AppBar(
 
         title: Text(
-          'Notifications',
+          S.of(context).notifications,
           style: TextStyle(fontSize: 22),
         ),
       ),
@@ -35,7 +36,7 @@ class _NotificationHistoryState extends State<NotificationHistory> {
           return EventCard(eventData: eventData);
         },
       )
-         : Center(child: Text('No Notification History'),)
+         : Center(child: Text(S.of(context).notifications_history),)
     );
   }
 }

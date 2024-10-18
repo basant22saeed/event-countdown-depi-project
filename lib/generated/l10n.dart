@@ -180,6 +180,16 @@ class S {
     );
   }
 
+  /// `No Notifiction History`
+  String get notifications_history {
+    return Intl.message(
+      'No Notifiction History',
+      name: 'notifications_history',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `English`
   String get english {
     return Intl.message(

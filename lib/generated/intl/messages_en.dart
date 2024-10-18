@@ -77,6 +77,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Describe the event"),
         "notes_title": MessageLookupByLibrary.simpleMessage("Notes"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
+        "notifications_history":
+            MessageLookupByLibrary.simpleMessage("No Notifiction History"),
         "profile_picture":
             MessageLookupByLibrary.simpleMessage("Profile Picture"),
         "save_button": MessageLookupByLibrary.simpleMessage("Save"),

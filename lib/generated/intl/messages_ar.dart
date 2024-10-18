@@ -37,19 +37,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "camera": MessageLookupByLibrary.simpleMessage("الكاميرا"),
         "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
-        "choose_color": MessageLookupByLibrary.simpleMessage("اختر لونًا >"),
-        "choose_icon": MessageLookupByLibrary.simpleMessage("اختر أيقونة >"),
+        "choose_color": MessageLookupByLibrary.simpleMessage("اختر اللون >"),
+        "choose_icon": MessageLookupByLibrary.simpleMessage("اختر الأيقونة >"),
         "date_picker": MessageLookupByLibrary.simpleMessage("تحديد التاريخ >"),
         "delete": MessageLookupByLibrary.simpleMessage("حذف"),
         "delete_event_confirmation": MessageLookupByLibrary.simpleMessage(
-            "هل أنت متأكد أنك تريد حذف هذا الحدث؟"),
+            "هل أنت متأكد من حذف هذا الحدث؟"),
         "edit_event": MessageLookupByLibrary.simpleMessage("تعديل الحدث"),
         "edit_event_details":
             MessageLookupByLibrary.simpleMessage("تعديل تفاصيل الحدث"),
         "edit_username":
             MessageLookupByLibrary.simpleMessage("تعديل اسم المستخدم"),
         "en_language_label": MessageLookupByLibrary.simpleMessage("En"),
-        "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
         "enter_username":
             MessageLookupByLibrary.simpleMessage("أدخل اسم المستخدم"),
         "event_added_snackbar":
@@ -77,8 +77,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "notes_hint_text": MessageLookupByLibrary.simpleMessage("وصف الحدث"),
         "notes_title": MessageLookupByLibrary.simpleMessage("ملاحظات"),
         "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+        "notifications_history":
+            MessageLookupByLibrary.simpleMessage("لا يوجد إشعارات سابقة"),
         "profile_picture":
-            MessageLookupByLibrary.simpleMessage("صورة الملف الشخصي"),
+            MessageLookupByLibrary.simpleMessage("الصورة الشخصية"),
         "save_button": MessageLookupByLibrary.simpleMessage("حفظ"),
         "select_language": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
         "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),

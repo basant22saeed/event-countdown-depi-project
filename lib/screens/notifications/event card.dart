@@ -1,16 +1,14 @@
-
+import 'package:event_countdown/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../model/event.dart';
 
-class EventCard extends StatelessWidget{
+class EventCard extends StatelessWidget {
   final Event eventData;
 
   EventCard({required this.eventData});
   @override
   Widget build(BuildContext context) {
-
-
     return Padding(
       padding: EdgeInsets.all(5),
       child: Card(
@@ -23,8 +21,7 @@ class EventCard extends StatelessWidget{
             children: [
               Text(
                 eventData.title,
-                style: TextStyle(
-                    fontSize: 30, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
               Row(
                 children: [
@@ -36,7 +33,7 @@ class EventCard extends StatelessWidget{
                     width: 5,
                   ),
                   Text(
-                    'Date: ${eventData.date.toIso8601String()}',
+                    '${S.of(context).Date}: ${eventData.date.toIso8601String()}',
                     style: TextStyle(fontSize: 16),
                   )
                 ],
@@ -51,7 +48,7 @@ class EventCard extends StatelessWidget{
                     width: 5,
                   ),
                   Text(
-                    'Time: ${eventData.time.format(context)}',
+                    '${S.of(context).Time}: ${eventData.time.format(context)}',
                     style: TextStyle(fontSize: 16),
                   )
                 ],
@@ -66,7 +63,7 @@ class EventCard extends StatelessWidget{
                     width: 5,
                   ),
                   Text(
-                    'Notes: ${eventData.notes}',
+                    '${S.of(context).notes_title}: ${eventData.notes}',
                     style: TextStyle(fontSize: 16),
                   )
                 ],
@@ -76,7 +73,5 @@ class EventCard extends StatelessWidget{
         ),
       ),
     );
-
   }
-
 }
