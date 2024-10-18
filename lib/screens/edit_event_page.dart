@@ -77,10 +77,10 @@ class _EditEventPageState extends State<EditEventPage> {
               children: [
                 SizedBox(height: 20),
                 Text(S.of(context).edit_event_details,
-                    style: TextStyle(fontSize: 16)),
+                    style: TextStyle(fontSize: 18)),
                 _buildTextField(
                     S.of(context).event_title, eventData.titleController),
-                SizedBox(height: 20),
+                SizedBox(height: 30),
                 _buildDatePicker(),
                 SizedBox(height: 20),
                 _buildTimePicker(),
@@ -120,7 +120,7 @@ class _EditEventPageState extends State<EditEventPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(S.of(context).notes_title, style: TextStyle(fontSize: 16)),
+        Text(S.of(context).notes_title, style: TextStyle(fontSize: 18)),
         _buildTextField(
             S.of(context).notes_hint_text, eventData.notesController),
       ],
@@ -137,7 +137,7 @@ class _EditEventPageState extends State<EditEventPage> {
         final pickedDate = await showDatePicker(
           context: context,
           initialDate: eventData.selectedDate ?? DateTime.now(),
-          firstDate: DateTime(2000),
+          firstDate: DateTime(2024),
           lastDate: DateTime(2101),
         );
         if (pickedDate != null) {
