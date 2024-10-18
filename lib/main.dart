@@ -27,18 +27,39 @@ void main() async {
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  static void setLocale(BuildContext context, Locale newLocale) {
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    state?.changeLocale(newLocale);
+  }
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
   //! نتحقق اذا كان المستخدم فتح التطبيق قبل كده ولا لا --  بسنت سعيد
+  Locale _locale = Locale('en'); // اللغة الافتراضية
   bool _seenOnboarding = false;
 
   @override
   void initState() {
     super.initState();
     _checkOnboarding();
+    _loadLocale();
+  }
+
+  Future<void> _loadLocale() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? languageCode = prefs.getString('language') ?? 'en';  // اللغة الافتراضية هي الإنجليزية إذا لم يكن هناك لغة محفوظة
+    setState(() {
+      _locale = Locale(languageCode);
+    });
+  }
+
+  void changeLocale(Locale newLocale) {
+    setState(() {
+      _locale = newLocale;
+    });
   }
 
   Future<void> _checkOnboarding() async {
@@ -58,7 +79,7 @@ class _MyAppState extends State<MyApp> {
       builder: (context, child) {
         final themeProvider = Provider.of<ThemeProvider>(context);
         return MaterialApp(
-          locale: Locale('ar'),
+          locale: _locale,
           //!    تحديد لغة التطبيق
           localizationsDelegates: [
             S.delegate,
@@ -83,8 +104,8 @@ class _MyAppState extends State<MyApp> {
               elevation: 0,
               backgroundColor: Colors.transparent,
             ),
-           
-           
+
+
             useMaterial3: true,
           ),
           highContrastTheme: ThemeData.light(),

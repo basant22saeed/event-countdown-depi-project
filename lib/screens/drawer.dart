@@ -1,11 +1,13 @@
 import 'dart:io';
 import 'package:event_countdown/generated/l10n.dart';
+import 'package:event_countdown/main.dart';
 import 'package:event_countdown/screens/notifications/notification.dart';
 import 'package:event_countdown/data/provider_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 class AppDrawer extends StatefulWidget {
   @override
@@ -165,7 +167,7 @@ class _AppDrawerState extends State<AppDrawer> {
                             : null,
                         child: _profileImage == null
                             ? Icon(Icons.person,
-                                size: 50, color: Colors.black45)
+                            size: 50, color: Colors.black45)
                             : null,
                       ),
                       Positioned(
@@ -257,7 +259,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 });
                 _saveSettings(); // Save night mode state
                 final provider =
-                    Provider.of<ThemeProvider>(context, listen: false);
+                Provider.of<ThemeProvider>(context, listen: false);
                 provider.toggleTheme(value);
               },
             ),
@@ -345,7 +347,6 @@ class _AppDrawerState extends State<AppDrawer> {
       },
     );
   }
-
   void _selectLanguage() {
     showDialog(
       context: context,
@@ -359,8 +360,9 @@ class _AppDrawerState extends State<AppDrawer> {
                 title: Text(S.of(context).english),
                 onTap: () {
                   setState(() {
-                    _selectedLanguage = S.of(context).en_language_label;
+                    _selectedLanguage = 'En';
                     _saveSettings();
+                    _changeLanguage('en');  // تغيير اللغة إلى الإنجليزية
                   });
                   Navigator.of(context).pop();
                 },
@@ -369,8 +371,9 @@ class _AppDrawerState extends State<AppDrawer> {
                 title: Text(S.of(context).arabic),
                 onTap: () {
                   setState(() {
-                    _selectedLanguage = S.of(context).ar_language_label;
+                    _selectedLanguage = 'Ar';
                     _saveSettings();
+                    _changeLanguage('ar');  // تغيير اللغة إلى العربية
                   });
                   Navigator.of(context).pop();
                 },
@@ -381,4 +384,14 @@ class _AppDrawerState extends State<AppDrawer> {
       },
     );
   }
+  void _changeLanguage(String languageCode) async {
+    Locale _locale = Locale(languageCode);
+    S.load(_locale);  // تحميل الترجمة الجديدة
+    MyApp.setLocale(context, _locale);  // تحديث Locale في التطبيق
+
+    // حفظ اللغة في SharedPreferences
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('language', languageCode);
+  }
+
 }
