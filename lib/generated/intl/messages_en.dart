@@ -34,7 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "add_event": MessageLookupByLibrary.simpleMessage("Add Event"),
         "app_name": MessageLookupByLibrary.simpleMessage("Eventaty"),
         "ar_language_label": MessageLookupByLibrary.simpleMessage("Ar"),
-        "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+        "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "camera": MessageLookupByLibrary.simpleMessage("Camera"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "choose_color": MessageLookupByLibrary.simpleMessage("Choose Color >"),

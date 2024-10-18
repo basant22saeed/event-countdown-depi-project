@@ -200,10 +200,10 @@ class S {
     );
   }
 
-  /// `Arabic`
+  /// `العربية`
   String get arabic {
     return Intl.message(
-      'Arabic',
+      'العربية',
       name: 'arabic',
       desc: '',
       args: [],
