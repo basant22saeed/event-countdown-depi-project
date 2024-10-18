@@ -172,22 +172,38 @@ class _EventViewState extends State<EventView> {
                 ),
               ],
             ),
-            SizedBox(height: 40),
+            SizedBox(height: 100),
 
             // العدّاد
-            Container(
-              padding: EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(
-                    255, 0, 27, 67), // اللون الأزرق الغامق للصندوق الكبير
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: remainingTime.inDays == 0 &&
-                      remainingTime.inHours == 0 &&
-                      remainingTime.inMinutes == 0 &&
-                      remainingTime.inSeconds == 0
-                  ? Text(S.of(context).ended_event)
-                  : Row(
+            remainingTime.inDays == 0 &&
+                    remainingTime.inHours == 0 &&
+                    remainingTime.inMinutes == 0 &&
+                    remainingTime.inSeconds == 0
+                ? Center(
+                    child: Container(
+                    padding: EdgeInsets.all(22),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(
+                          255, 0, 27, 67), // اللون الأزرق الغامق للصندوق الكبير
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      S.of(context).ended_event,
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ))
+                : Container(
+                    padding: EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(
+                          255, 0, 27, 67), // اللون الأزرق الغامق للصندوق الكبير
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         // صندوق لعدد الأيام
@@ -314,7 +330,7 @@ class _EventViewState extends State<EventView> {
                         ),
                       ],
                     ),
-            ),
+                  ),
             Spacer(), // هذا الفاصل لدفع الزرارين إلى أسفل الصفحة
 
             // Row يحتوي على زر Edit وزر Delete

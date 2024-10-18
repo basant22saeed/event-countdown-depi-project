@@ -49,7 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_username":
             MessageLookupByLibrary.simpleMessage("تعديل اسم المستخدم"),
         "en_language_label": MessageLookupByLibrary.simpleMessage("En"),
-        "ended_event": MessageLookupByLibrary.simpleMessage("لقد انتهى الحدث"),
+        "ended_event": MessageLookupByLibrary.simpleMessage("انتهى الحدث"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
         "enter_username":
             MessageLookupByLibrary.simpleMessage("أدخل اسم المستخدم"),
