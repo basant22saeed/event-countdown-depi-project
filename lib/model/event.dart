@@ -10,6 +10,7 @@ class Event {
   String notes;
 
 
+
   Event({
     required this.title,
     required this.date,

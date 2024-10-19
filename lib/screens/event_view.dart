@@ -46,7 +46,8 @@ class _EventViewState extends State<EventView> with WidgetsBindingObserver {
 
   void _loadEndDateTime() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? storedEndDateTime = prefs.getString('endDateTime');
+    // استخدام مفتاح فريد يعتمد على eventIndex
+    String? storedEndDateTime = prefs.getString('endDateTime_${widget.eventIndex}');
     if (storedEndDateTime != null) {
       setState(() {
         endDateTime = DateTime.parse(storedEndDateTime);
@@ -61,12 +62,17 @@ class _EventViewState extends State<EventView> with WidgetsBindingObserver {
       );
       setState(() {
         endDateTime = eventDateTime;
-        _saveEndDateTime();
+        _saveEndDateTime(); // حفظ الوقت النهائي للحدث
       });
     }
     _calculateRemainingTime();
   }
 
+  void _saveEndDateTime() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    // استخدام مفتاح فريد يعتمد على eventIndex
+    await prefs.setString('endDateTime_${widget.eventIndex}', endDateTime!.toIso8601String());
+  }
   void _calculateRemainingTime() {
     final now = DateTime.now();
     if (endDateTime != null && endDateTime!.isAfter(now)) {
@@ -89,17 +95,11 @@ class _EventViewState extends State<EventView> with WidgetsBindingObserver {
           remainingTime = remainingTime - Duration(seconds: 1);
         } else {
           eventEnded = true;
-          countdownTimer?.cancel();
+          countdownTimer?.cancel(); // إيقاف المؤقت عند انتهاء الحدث
         }
       });
     });
   }
-
-  void _saveEndDateTime() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('endDateTime', endDateTime!.toIso8601String());
-  }
-
 
   @override
     Widget build(BuildContext context) {
