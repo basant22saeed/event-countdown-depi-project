@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.event_countdown"
+    namespace "com.example.event_countdown"
     compileSdk = 34
     ndkVersion = flutter.ndkVersion
 
