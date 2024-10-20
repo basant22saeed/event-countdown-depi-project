@@ -16,14 +16,11 @@ class LocalNotificationService {
   static FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
   static List<Event> notifiedEvents = [];
-  static onTap(NotificationResponse notificationResponse) {
-
-  }
+  static onTap(NotificationResponse notificationResponse) {}
   static Future init() async {
     InitializationSettings settings = InitializationSettings(
         android: AndroidInitializationSettings('@mipmap/ic_launcher'),
         iOS: DarwinInitializationSettings());
-
 
     flutterLocalNotificationsPlugin.initialize(settings,
         onDidReceiveNotificationResponse: onTap,
@@ -49,7 +46,7 @@ class LocalNotificationService {
     );
 
     await flutterLocalNotificationsPlugin.zonedSchedule(
-        1, event.title, event.notes, eventDateTime, details,
+        0, event.title, event.notes, eventDateTime, details,
         uiLocalNotificationDateInterpretation:
             UILocalNotificationDateInterpretation.absoluteTime);
     NotificationHistory.notifiedEvents.add(event);
